@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTypesTable extends Migration
+class AddAvatarToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePostTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('post__types', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name', 50);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+          $table->string('avatar', '255')->after('password');
+          $table->smallInteger('profile')->default(0)->after('avatar');
         });
     }
 
@@ -27,6 +26,8 @@ class CreatePostTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post__types');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }
