@@ -18,6 +18,8 @@ class CreateLikesTable extends Migration
             $table->bigInteger('user_id')->unsigned(); //FK de users.;
             $table->bigInteger('post_id')->unsigned(); //FK de posts.;
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 

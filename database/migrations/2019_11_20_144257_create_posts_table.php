@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->smallInteger('type_id');
             $table->bigInteger('user_id')->unsigned(); //FK de users.;
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -26,6 +26,7 @@ class CreateBiographiesTable extends Migration
             $table->string('degree', 100);
             $table->string('file_cv', 255);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
