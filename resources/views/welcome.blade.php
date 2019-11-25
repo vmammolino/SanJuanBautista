@@ -79,6 +79,8 @@
                 </div>
             @endif
 
+            <!-- Styles
+
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
@@ -94,6 +96,8 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
+            -->
+            
         </div>
     </body>
 </html>
