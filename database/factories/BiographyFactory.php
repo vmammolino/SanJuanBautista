@@ -12,13 +12,13 @@ $gender = $faker->randomElement(['M', 'F']);
     'user_id'=> rand(1,10), //FK de users.;
     'first_name'=>$faker->firstName($gender),
     'last_name'=>$faker->lastName,
-    'genre'=>$faker-->randomElement(['M', 'F']),
-    'birth_date'=>$faker->date(['Y-m-d', 'now']),
+    'genre'=>$faker->randomElement([0, 1]),
+    'birth_date'=>$faker->date('Y-m-d'),
     'address'=>$faker->streetAddress,
     'city'=>$faker->city,
     'studies'=>$faker->word(),
     'degree'=>$faker->word(),
-    'file_cv'=>$faker->image($path, 100, 100, 'technicss', false)
+    'file_cv'=>$faker->image($path, 100, 100, 'technics', false)
 
         //
     ];
