@@ -66,12 +66,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-///no está guARDANDO LA IMAGEN PERO PUEDO REGISTRAR EL USUARIO 
-        $ext = pathinfo($_FILES["avatar"]['name'], PATHINFO_EXTENSION);
+      ///no está guARDANDO LA IMAGEN PERO PUEDO REGISTRAR EL USUARIO
 
         //$path = $data->file('avatar')->store("public");
-        $path = $data['avatar']->store("public");
-
+        $path = $data['avatar']->store("public/avatar");
 
         $nombreArchivo = basename($path);
 
