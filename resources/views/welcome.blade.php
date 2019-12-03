@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -84,8 +85,8 @@
             @endif
 
 <!-- aca empieza lo mio -->
-<div class="contenedor">
-        <!--  <img  class="banner-inicial" src="/imagenes_sitio/fondo-cielo.png"> -->
+<div class="content">
+        <!-- <img  class="banner-inicial" src="/imagenes_sitio/fondo-cielo.png"> -->
 
           @if (Route::has('login'))
             <div class="row">
