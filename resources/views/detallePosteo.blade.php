@@ -6,9 +6,11 @@
     <title></title>
   </head>
   <body>
-    <h2>Acá va el detalle de un post La idea es
-       que en esta página el usuario pueda agregar el me gusta o postularse</h2>
-<h2>Me pidieron el posteo <?=$id?> </h2>
+    <h2>Detalle de Posteo</h2>
+    <p>{{$posteo->image}}</p>
+    <p>{{$posteo->title}}</p>
+    <p>{{$posteo->description}}</p>
+    <p>{{$posteo->link}}</p>
 
   </body>
 </html>

@@ -52,7 +52,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-      $vac= compact("id");
+      $posteo= Post::Find($id);
+      $vac= compact("posteo");
       return view("detallePosteo",$vac);
     }
 
