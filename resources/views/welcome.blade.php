@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>SJB_Bienvenido</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -61,6 +61,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .btn {
+              display: block;
+            }
+
         </style>
     </head>
     <body>
@@ -79,6 +83,32 @@
                 </div>
             @endif
 
+<!-- aca empieza lo mio -->
+<div class="contenedor">
+        <!--  <img  class="banner-inicial" src="/imagenes_sitio/fondo-cielo.png"> -->
+
+          @if (Route::has('login'))
+            <div class="row">
+          @auth
+              <a href="{{ url('/home') }}">Home</a>
+              @else
+              <div class="col-xs-8">
+                <img src="/imagenes_sitio/logo.png" class="img-circle" alt="Logo SJB" width="150" height="150">
+              <div class="col-xs-6">
+               <a class="btn btn-success" href="{{ route('login') }}">LOGIN</a>
+              </div>
+              <div class="col-xs-6">
+              @if (Route::has('register'))
+
+              <a class="btn btn-primary" href="{{ route('register') }}">REGISTRO</a>
+              </div>
+              @endif
+           @endauth
+            </div>
+          @endif
+
+
+<!-- hasta aca-->
             <!-- Styles
 
             <div class="content">
@@ -97,7 +127,9 @@
                 </div>
             </div>
             -->
-            
+
         </div>
+      </div>
     </body>
+
 </html>

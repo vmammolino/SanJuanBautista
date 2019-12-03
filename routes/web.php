@@ -18,3 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get("/posteos", "PostController@index");
+
+Route::get("/posteo/{id}","PostController@show");
+
+
+// Route::get("/posteos", function(){
+//  return view("posteos");});
+
+//Route::get("/posteo/{id}", function($id){
+
+//  $vac= compact("id");
+//  return view("detallePosteo",$vac);});*/

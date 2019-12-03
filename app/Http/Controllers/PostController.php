@@ -14,6 +14,12 @@ class PostController extends Controller
      */
     public function index()
     {
+      $post= Post::all();
+
+      //dd($posteos);
+
+      $vac= compact("post");
+      return view("posteos",$vac);
         //
     }
 
@@ -44,9 +50,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+      $vac= compact("id");
+      return view("detallePosteo",$vac);
     }
 
     /**
@@ -57,7 +64,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+
     }
 
     /**
