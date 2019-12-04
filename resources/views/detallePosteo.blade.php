@@ -10,7 +10,7 @@
     <img  src="/storage/posteo/{{$posteo->image}}">
     <p>{{$posteo->title}}</p>
     <p>{{$posteo->description}}</p>
-    <a href="//{{$posteo->link}}" >{{$posteo->link}}</a>
+    <a href="//{{$posteo->link}}" target="_blank" >{{$posteo->link}}</a>
 
   </body>
 </html>
