@@ -8,18 +8,24 @@
   <body>
 
 <h1>POSTEOS DE LA PÁGINA</h1>
-<ul>@forelse ($post as $posteo)
-  <li>
-    <p>{{$posteo->image}}</p>
+<section class ="posteos">
+  @forelse ($post as $posteo)
+  <article class="posteo">
+    <a href="/posteo/{{$posteo->id}}" >
+      <img  src="/storage/posteo/{{$posteo->image}}">
+    </a>
+    <a href="/posteo/{{$posteo->id}}" >
     <p>{{$posteo->title}}</p>
-    <p>{{$posteo->description}}</p>
-    <p>{{$posteo->link}}</p>
-  </li>
-@empty
-  <p>'No tenemos posteos disponibles'</p>
+    </a>
+  </article>
 
-@endforelse
-</ul>
+  @empty
+    <p>'No tenemos posteos disponibles'</p>
+
+  @endforelse
+
+</section>
+
 
 
   </body>

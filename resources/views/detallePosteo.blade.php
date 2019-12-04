@@ -7,10 +7,10 @@
   </head>
   <body>
     <h2>Detalle de Posteo</h2>
-    <p>{{$posteo->image}}</p>
+    <img  src="/storage/posteo/{{$posteo->image}}">
     <p>{{$posteo->title}}</p>
     <p>{{$posteo->description}}</p>
-    <p>{{$posteo->link}}</p>
+    <a href="//{{$posteo->link}}" >{{$posteo->link}}</a>
 
   </body>
 </html>

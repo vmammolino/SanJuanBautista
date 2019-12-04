@@ -23,6 +23,11 @@ Route::get("/posteos", "PostController@index");
 
 Route::get("/posteo/{id}","PostController@show");
 
+Route::get("/posteoPorTipo/{type_id}","PostController@indexPorTipoPosteo");
+
+Route::get("/posteoPorUser/{user_id}","PostController@indexPorUser");
+
+
 
 // Route::get("/posteos", function(){
 //  return view("posteos");});
