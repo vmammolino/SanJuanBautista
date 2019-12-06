@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Auth;
 
 class PostController extends Controller
 {
@@ -40,9 +41,25 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
-    }
 
+        return view ("abmposteo");
+    }
+    // /**
+    //  * Get a validator for an incoming registration request.
+    //  *
+    //  * @param  array  $data
+    //  * @return \Illuminate\Contracts\Validation\Validator
+    //  */
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'title' => ['required', 'string', 'max:191'],
+    //        // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'description' => ['required', 'string'],
+    //        'link' => ['required', 'string', 'max:300'],
+    //         'image' => ['required', 'file', "image"],
+    //     ]);
+    // }
     /**
      * Store a newly created resource in storage.
      *
@@ -51,7 +68,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //$path = $post->image->store("public/avatar");
+
+    //  $nombreArchivo = basename($path);
+     $path = $request->image->store("public/posteos");
+     $nombreArchivo = basename($path);
+
+      $post=new Post;
+      $post->title=$request->title;
+      $post->type_id=$request->category;
+      $post->description=$request->description;
+      $post->link=$request->link;
+      $post->user_id=Auth::user()->id;
+      $post->image=$nombreArchivo;
+
+      $post->save();
+      return redidect ("/abmposteos");
     }
 
     /**

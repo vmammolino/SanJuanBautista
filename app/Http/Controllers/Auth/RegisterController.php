@@ -52,8 +52,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            //'avatar' => ['required', 'string', 'max:255'],
-            'avatar' => ['required', 'file'],
+            'avatar' => ['required', 'file', "image"],
         ]);
     }
 
@@ -66,9 +65,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-      ///no está guARDANDO LA IMAGEN PERO PUEDO REGISTRAR EL USUARIO
 
-        //$path = $data->file('avatar')->store("public");
         $path = $data['avatar']->store("public/avatar");
 
         $nombreArchivo = basename($path);

@@ -29,7 +29,7 @@
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Biografia</a>
-            <a class="dropdown-item" href=""/posteoPorUser/{{Auth::user()->id}}" ">Mis Posteos</a>
+            <a class="dropdown-item" href="/posteoPorUser/{{Auth::user()->id}}">Mis Posteos</a>
             <a class="dropdown-item" href="/{{Auth::logout()}}">Cerrar Sesion</a>
           </div>
         </div>

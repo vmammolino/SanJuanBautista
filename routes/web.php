@@ -28,6 +28,14 @@ Route::get("/posteoPorTipo/{type_id}","PostController@indexPorTipoPosteo");
 
 Route::get("/posteoPorUser/{user_id}","PostController@indexPorUser");
 
+Route::get("/posteoPorUser/{user_id}","PostController@storePorUser");
+
+Route::get("/posteoPorUser/{user_id}","PostController@updatePorUser");
+
+
+Route::get("/abmposteos", "PostController@create")->middleware("auth");
+
+Route::post("/abmposteos","PostController@store");
 
 
 // Route::get("/posteos", function(){
