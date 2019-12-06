@@ -19,23 +19,18 @@
 
    @else
 
-       <div class="d-flex flex-row-reverse flex-wrap">
-         <a class="btn btn-outline-secondary" href="/logout">Logout</a>
-         <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
-         <span>Hola {{Auth::user()->name}}</span>
-       </div>
-
        {{-- Cambio por un boton con el mail y avatar del usuario y en el boton
        se despliega menu para cargar BIOGRAFIA / MIS POSTEOS / CERRAR SESION   --}}
        <div class="dropdown">
           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
+            <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
+             <span>{{Auth::user()->name}}</span>
           </a>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Biografia</a>
-            <a class="dropdown-item" href="#">Mis Posteos</a>
-            <a class="dropdown-item" href="#">Cerrar Sesion</a>
+            <a class="dropdown-item" href=""/posteoPorUser/{{Auth::user()->id}}" ">Mis Posteos</a>
+            <a class="dropdown-item" href="/{{Auth::logout()}}">Cerrar Sesion</a>
           </div>
         </div>
 
