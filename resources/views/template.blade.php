@@ -6,15 +6,23 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title')</title>
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
+
+@guest
   <body>
+@else
+  <body style="background-image: none">
+@endguest
+
+
     <div class="contenedor">
 
      <header class="main-header">
-       <img  class="logo" src="images/logo.png" alt="logotipo">
+       <img  class="logo" src="/imagenes_sitio/logo.png" alt="Logo San Juan Bautista">
      </header>
 
      <main class="main-header">
@@ -22,6 +30,9 @@
 
      </main>
     </div>
+
+
+  <!-- saco el footer
   <footer>
    <nav class="main-footer">
      <img  class="logo-footer" src="images/logo-footer.png" alt="logotipo">
@@ -30,7 +41,8 @@
        <li><a href="#">Quiero Ayudar</a></li>
      </ul>
    </nav>
-  </footer>
+  </footer>  -->
+
   </div>
 
   <!-- Optional JavaScript -->
