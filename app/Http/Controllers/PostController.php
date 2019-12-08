@@ -67,7 +67,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {dd($request);
       //$path = $post->image->store("public/avatar");
 
     //  $nombreArchivo = basename($path);
