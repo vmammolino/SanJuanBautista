@@ -12,9 +12,15 @@ class BiographyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        //
+      $registro = Biography::where("user_id","=",$user_id)->get();
+      // dd("user : ", $user_id, $registro);
+
+      $vac= compact("registro");
+      // dd("VAC: ", $vac, $registro);
+
+      return view("biografia",$vac);
     }
 
     /**
@@ -22,9 +28,29 @@ class BiographyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($user_id)
     {
-        //
+
+              return view ("biografia");
+/*
+              $path = $data['file_cv']->store("public/cv");
+
+              $nombreArchivo = basename($path);
+
+              return User::create([
+                  'user_id' => $data['user_id'],
+                  'first_name' => $data['first_name'],
+                  'last_name' => $data['last_name'],
+                  'genre' => $data['genre'],
+                  'birth_date' => $data['birth_date'],
+                  'phone' => $data['phone'],
+                  'address' => $data['address'],
+                  'city' => $data['city'],
+                  'studies' => $data['studies'],
+                  'degree' => $data['degree'],
+                  'file_cv' => $nombreArchivo,
+              ]);
+*/
     }
 
     /**
@@ -35,7 +61,25 @@ class BiographyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd("Estoy en funcion STORE de BiographyController", $request);
+        $path = $request->file_cv->store("public/cv");
+        $nombreArchivo = basename($path);
+
+        $post=new Post;
+        $post->user_id=$request->user_id;
+        $post->first_name=$request->first_name;
+        $post->last_name=$request->last_name;
+        $post->genre=$request->genre;
+        $post->birth_date=$request->birth_date;
+        $post->phone=$request->phone;
+        $post->address=$request->address;
+        $post->city=$request->city;
+        $post->studies=$request->studies;
+        $post->degree=$request->degree;
+        $post->file_cv=$request->$nombreArchivo;
+
+        $post->save();
+        return redirect ("/biografia");
     }
 
     /**
@@ -44,9 +88,12 @@ class BiographyController extends Controller
      * @param  \App\Biography  $biography
      * @return \Illuminate\Http\Response
      */
-    public function show(Biography $biography)
+
+    public function show($user_id)
     {
-        //
+        $biografia = Biography::where("user_id","=",$user_id)->get();
+        $vac= compact("$biografia");
+        return view("biografia",$vac);
     }
 
     /**

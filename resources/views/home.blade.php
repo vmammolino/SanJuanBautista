@@ -5,38 +5,35 @@
 @section('content')
 
  @guest
-                <div class="logo-container">
-  <!--               <img src="/imagenes_sitio/logo.png" class="logo" alt="Logo SJB" width="150" height="150">  -->
+      <div class="logo-container">
+<!--               <img src="/imagenes_sitio/logo.png" class="logo" alt="Logo SJB" width="150" height="150">  -->
 
-                     <div class="btn-container">
-                       <a class="btn btn-light btn-block" href="{{ route('login') }}">Login</a>
-                     </div>
-                     <div class="btn-container">
-                       <a class="btn btn-light btn-block" href="{{ route('register') }}">Registrarme</a>
-                    </div>
-               </div>
-
+           <div class="btn-container">
+             <a class="btn btn-light btn-block" href="{{ route('login') }}">Login</a>
+           </div>
+           <div class="btn-container">
+             <a class="btn btn-light btn-block" href="{{ route('register') }}">Registrarme</a>
+          </div>
+     </div>
 
    @else
 
        {{-- Cambio por un boton con el mail y avatar del usuario y en el boton
        se despliega menu para cargar BIOGRAFIA / MIS POSTEOS / CERRAR SESION   --}}
-       <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
-             <span>{{Auth::user()->name}}</span>
-          </a>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
+          <span>{{Auth::user()->name}}</span>
+        </a>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Biografia</a>
-            <a class="dropdown-item" href="/posteoPorUser/{{Auth::user()->id}}">Mis Posteos</a>
-            <a class="dropdown-item" href="/{{Auth::logout()}}">Cerrar Sesion</a>
-          </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/biografia/{{Auth::user()->id}}">Biografia</a>
+          <a class="dropdown-item" href="/posteoPorUser/{{Auth::user()->id}}">Mis Posteos</a>
+          <a class="dropdown-item" href="/{{Auth::logout()}}">Cerrar Sesion</a>
         </div>
+      </div>
 
-
-
-        <section class="posteos">
+      <section class="posteos">
 
           <article class="post">
             <h2>OFERTAS DE TRABAJO</h2>
@@ -45,7 +42,7 @@
                 <img class="photo" src="/imagenes_sitio/trabajo.jpg" alt="foto trabajo">
               </a>
             </div>
-           </article>
+          </article>
 
           <article class="post">
             <h2>OFERTAS DE CAPACITACIÓN</h2>

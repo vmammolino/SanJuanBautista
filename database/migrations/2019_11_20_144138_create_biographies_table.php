@@ -20,6 +20,7 @@ class CreateBiographiesTable extends Migration
             $table->string('last_name', 50);
             $table->smallInteger('genre');
             $table->date('birth_date');
+            $table->string('phone', 25) nullable;
             $table->string('address', 100);
             $table->string('city', 50);
             $table->string('studies', 50);
