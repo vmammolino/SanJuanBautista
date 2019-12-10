@@ -44,6 +44,18 @@ class PostController extends Controller
 
         return view ("abmposteo");
     }
+
+    public function modifPosteo($id)
+    {
+    // aca habria que mandarle todos los datos del posteo
+    $post= Post::where("id","=",$id)->get();
+    $vac= compact("post");
+    return view("modifPosteos",$vac);
+
+    }
+
+
+
     // /**
     //  * Get a validator for an incoming registration request.
     //  *
@@ -127,8 +139,31 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
-    {
-        //
+    public function destroy(Request $request)
+  {
+    // {dd($request->id);
+
+// {dd($request->user_id);
+
+      $user=$request->user_id;
+      $id=$request->id;
+      $posteo=Post::Find($id);
+      $posteo->delete();
+      return redirect ("/posteoPorUser/{user_id}");
+      // $path = $request->image->store("public/posteo");
+      // $nombreArchivo = basename($path);
+      //
+      //  $post=new Post;
+      //  $post->title=$request->title;
+      //  $post->type_id=$request->type_id;
+      //  $post->description=$request->description;
+      //  $post->link=$request->link;
+      //  $post->user_id=Auth::user()->id;
+      //  $post->image=$nombreArchivo;
+      //
+      //  $post->save();
+      //  return redirect ("/abmposteos");
+
+        // return redirect /indexPorUser();//
     }
 }

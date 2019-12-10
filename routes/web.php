@@ -41,7 +41,15 @@ Route::post("/biografia/{user_id}", "BiographyController@store");
 
 Route::post("/altabiografia/{user_id}", "BiographyController@create");
 
+/*Formulario de MODIFICACION de posteo get y post*/
+Route::get("/modifPosteos/{id}", "PostController@modifPosteo")->middleware("auth");
 
+Route::post("/modifPosteos","PostController@store");// ver si no tengo que usar update
+
+/*Formulario borrar posteo get y post*/
+// Route::get("/detallePosteo/{id}", "PostController@modifPosteo")->middleware("auth");
+
+Route::post("/borrarPosteo","PostController@destroy");
 
 // Route::get("/posteos", function(){
 //  return view("posteos");});
