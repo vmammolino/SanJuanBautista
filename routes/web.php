@@ -37,9 +37,11 @@ Route::post("/abmposteos","PostController@store");
 /* Biografia del usuario */
 Route::get("/biografia/{user_id}", "BiographyController@index");
 
-Route::post("/biografia/{user_id}", "BiographyController@store");
-
+Route::get("/altabiografia/{user_id}", "BiographyController@create");
 Route::post("/altabiografia/{user_id}", "BiographyController@create");
+
+Route::get("/modifbiografia/{user_id}", "BiographyController@store");
+Route::post("/modifbiografia/{user_id}", "BiographyController@store");
 
 
 
