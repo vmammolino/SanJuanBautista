@@ -25,14 +25,10 @@ Route::get("/posteos", "PostController@index");
 Route::get("/posteo/{id}","PostController@show");
 
 Route::get("/posteoPorTipo/{type_id}","PostController@indexPorTipoPosteo");
-
+/*Posteos por usuario*/
 Route::get("/posteoPorUser/{user_id}","PostController@indexPorUser");
 
-Route::get("/posteoPorUser/{user_id}","PostController@storePorUser");
-
-Route::get("/posteoPorUser/{user_id}","PostController@updatePorUser");
-
-
+/*Formulario de alta de posteo get y post*/
 Route::get("/abmposteos", "PostController@create")->middleware("auth");
 
 Route::post("/abmposteos","PostController@store");

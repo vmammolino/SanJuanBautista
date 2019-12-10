@@ -50,16 +50,17 @@ class PostController extends Controller
     //  * @param  array  $data
     //  * @return \Illuminate\Contracts\Validation\Validator
     //  */
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'title' => ['required', 'string', 'max:191'],
-    //        // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'description' => ['required', 'string'],
-    //        'link' => ['required', 'string', 'max:300'],
-    //         'image' => ['required', 'file', "image"],
-    //     ]);
-    // }
+     //  protected function validator(array $data)
+     //  { dd($data);
+     //     return Validator::make($data, [
+     //        'type_id'=>['required', 'smallint']
+     //      //  'title' => ['required', 'string', 'max:191'],
+     //        // 'link' => ['required', 'string', 'emai', 'max:255', 'unique:users'],
+     //        'description' => ['required', 'text'],
+     //        'link' => ['required', 'string', 'max:300'],
+     //        'image' => ['required', 'file', "image"],
+     //     ]);
+     // }
     /**
      * Store a newly created resource in storage.
      *
@@ -67,23 +68,21 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {dd($request);
-      //$path = $post->image->store("public/avatar");
+    {//dd($request);
 
-    //  $nombreArchivo = basename($path);
-     $path = $request->image->store("public/posteos");
+     $path = $request->image->store("public/posteo");
      $nombreArchivo = basename($path);
 
       $post=new Post;
       $post->title=$request->title;
-      $post->type_id=$request->category;
+      $post->type_id=$request->type_id;
       $post->description=$request->description;
       $post->link=$request->link;
       $post->user_id=Auth::user()->id;
       $post->image=$nombreArchivo;
 
       $post->save();
-      return redidect ("/abmposteos");
+      return redirect ("/abmposteos");
     }
 
     /**

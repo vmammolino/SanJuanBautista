@@ -6,28 +6,19 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('ABM POSTEOS') }}</div>
-
                 <div class="card-body">
-                  {{-- @dd(Auth::user()) --}}
-                  {{-- /abmposteos/{{Auth::user()->id}} --}}
                     <form method="POST" action="/abmposteos"  enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
                             <label for="type_id" class="col-md-4 col-form-label text-md-right">{{ __('CATEGORIA') }}</label>
                             {{--  --}}
-                            <select name="category" form="category">
-                              <option value="TRABAJO">TRABAJO</option>
-                              <option value="CAPACITACION">CAPACITACION</option>
-                              <option value="EMPRENDIMIENTOS">EMPRENDIMIENTOS</option>
-                              <option value="GRADUACION">GRADUACION</option>
+                            <select name="type_id" id="type_id">
+                              <option value="1">TRABAJO</option>
+                              <option value="2">CAPACITACION</option>
+                              <option value="3">EMPRENDIMIENTOS</option>
+                              <option value="4">GRADUACION</option>
                             </select>
-                            {{--  --}}
-
-
-                            {{-- <div class="col-md-6">
-                                <input id="type_id" type="text" class="form-control @error('type_id') is-invalid @enderror" name="type_id" value="{{ old('type_id') }}" required autocomplete="type_id" autofocus> --}}
-
                                 @error('type_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -37,10 +28,8 @@
 
                         <div class="form-group row">
                             <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('TITULO') }}</label>
-
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="name" autofocus>
-
+                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
                                 @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -49,18 +38,17 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('DESCRIPCIÓN') }}</label>
-
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('DESCRIPCIÓN') }}</label>
                             <div class="col-md-6">
                                 {{-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> --}}
                                   {{-- agregue esto --}}
 
                                   {{-- <br> --}}
-                                  <textarea rows="4" cols="50" name="comment" form="usrform">
+                                  <textarea id="description" rows="4" cols="50" name="description" >
                                   </textarea>
 
                                   {{-- hasta aca --}}
-                                @error('name')
+                                @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -93,17 +81,15 @@
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-success">
                                     CARGAR
-
                                 </button>
-                                {{-- <button type="submit" class="btn btn-warning">
-                                    {{ __('MODIFICAR') }}
-                                </button>
-                                <button type="submit" class="btn btn-danger">
-                                    {{ __('BORRAR') }}
-                                </button> --}}
                             </div>
                         </div>
                     </form>
+                      <form class="" action="/posteoPorUser/{{Auth::user()->id}}"   method="get">
+                        <button type="submit" class="btn btn-warning">
+                         {{ __('VOLVER') }}
+                       </form>
+
                   </div>
                 </div>
             </div>
