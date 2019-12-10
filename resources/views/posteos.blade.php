@@ -8,7 +8,7 @@
   <body>
     <div class="container">
         <div class="row justify-content-center">
-<h2>Bien venido "{{Auth::user()->name}}".Estos son tus posteos</h2>
+          <h2>Bien venido "{{Auth::user()->name}}".Estos son tus posteos</h2>
           <section class ="posteos">
             @forelse ($post as $posteo)
               <article class="posteo">
