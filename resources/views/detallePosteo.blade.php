@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/app.css">
-    <title></title>
-  </head>
-  <body>
+@extends('template')
+@section('title', 'Detalle de posteos')
+
+@section('content')
     <h2>Detalle de Posteo</h2>
     <img  src="/storage/posteo/{{$posteo->image}}">
     <p>{{$posteo->title}}</p>
@@ -41,7 +37,4 @@
   </div>
   </div>
 
-
-
-  </body>
-</html>
+@endsection

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Posteos</title>
-    {{-- <link rel="stylesheet" href="/css/app.css"> --}}
-  </head>
-  <body>
+@extends('template')
+@section('title', 'Posteos')
+
+@section('content')
     <div class="container">
         <div class="row justify-content-center">
           {{-- <h2>Bien venido "{{Auth::user()->name}}".Estos son tus posteos</h2> --}}
@@ -51,5 +47,4 @@
     </div>
   </div>
   </div>
-  </body>
-</html>
+@endsection
