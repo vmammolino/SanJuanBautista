@@ -18,7 +18,12 @@ a {
   text-decoration: none;
   color: #000;}
 /*mobile first*/
+.content{
+  background-image: url(/imagenes_sitio/fondo-cielo.png);
+  background-size: contain;
+  margin: 0 auto;
 
+}
 body{
   background-image: url(/imagenes_sitio/comunidad.png);
   background-size: 100%;

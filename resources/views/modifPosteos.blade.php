@@ -11,14 +11,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('ABM POSTEOS') }}</div>
+              {{-- @dd(Post); --}}
+                <div class="card-header">{{ __('MODIFICACION DE POSTEO') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="/abmposteos"  enctype="multipart/form-data">
+                    <form method="POST" action="/modifPosteos"  enctype="multipart/form-data">
                         @csrf
-{{-- @dd(Auth::user()->name) --}}
+
                         <div class="form-group row">
                             <label for="type_id" class="col-md-4 col-form-label text-md-right">{{ __('CATEGORIA') }}</label>
                             {{--  --}}
+
                             <select name="type_id" id="type_id">
                               <option value="1">TRABAJO</option>
                               <option value="2">CAPACITACION</option>
@@ -91,11 +93,12 @@
                                 <button type="reset" class="btn btn-secondary">
                                     BORRAR
                                 </button>
+                                
                             </div>
                         </div>
                       </form>
                       <form class="" action="/posteoPorUser/{{Auth::user()->id}}"   method="get">
-                        @csrf
+                        {{-- @csrf --}}
                         <button type="submit" class="btn btn-link">
                          {{ __('VOLVER') }}
                        </form>

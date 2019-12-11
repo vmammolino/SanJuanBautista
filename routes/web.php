@@ -32,6 +32,17 @@ Route::get("/posteoPorUser/{user_id}","PostController@indexPorUser");
 Route::get("/abmposteos", "PostController@create")->middleware("auth");
 
 Route::post("/abmposteos","PostController@store");
+/*Formulario de MODIFICACION de posteo get y post*/
+Route::get("/modifPosteos/{id}", "PostController@modifPosteo")->middleware("auth");
+
+Route::post("/modifPosteos","PostController@store");// ver si no tengo que usar update
+
+
+
+/*Formulario borrar posteo get y post*/
+// Route::get("/detallePosteo/{id}", "PostController@modifPosteo")->middleware("auth");
+
+Route::post("/borrarPosteo","PostController@destroy");
 
 
 /* Biografia del usuario */
@@ -41,8 +52,7 @@ Route::get("/altabiografia/{user_id}", "BiographyController@create");
 Route::post("/altabiografia/{user_id}", "BiographyController@create");
 
 Route::get("/modifbiografia/{user_id}", "BiographyController@store");
-Route::post("/modifbiografia/{user_id}", "BiographyController@store");
-
+Route::post("modifbiografia/{user_id}", "BiographyController@store");
 
 
 // Route::get("/posteos", function(){
