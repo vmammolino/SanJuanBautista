@@ -45,14 +45,37 @@ Route::post("/modifPosteos","PostController@store");// ver si no tengo que usar 
 Route::post("/borrarPosteo","PostController@destroy");
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Biografia del usuario */
-Route::get("/biografia/{user_id}", "BiographyController@index");
+Route::get("/biografia/{user_id}", "BiographyController@show");
 
-Route::get("/altabiografia/{user_id}", "BiographyController@create");
-Route::post("/altabiografia/{user_id}", "BiographyController@create");
+Route::get("/altabiografia/{user_id}", "BiographyController@create")->middleware("auth");
+Route::post("/altabiografia/{user_id}", "BiographyController@store");
 
-Route::get("/modifbiografia/{user_id}", "BiographyController@store");
-Route::post("modifbiografia/{user_id}", "BiographyController@store");
+Route::get("/modifbiografia/{biography}", "BiographyController@edit")->middleware("auth");
+Route::post("modifbiografia/{id}", "BiographyController@update");
 
 
 // Route::get("/posteos", function(){

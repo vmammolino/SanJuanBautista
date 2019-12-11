@@ -12,15 +12,12 @@ class BiographyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($user_id)
+    public function index()
     {
-      $registro = Biography::where("user_id","=",$user_id)->get();
-        // dd("user : ", $user_id, $registro);
-
-      $vac= compact("registro");
-      // dd("VAC: ", $vac, $registro);
-
+      $biography= Biography::all();
+      $vac= compact("biography");
       return view("biografia",$vac);
+
     }
 
     /**
@@ -30,27 +27,8 @@ class BiographyController extends Controller
      */
     public function create($user_id)
     {
-
               return view ("biografia");
-/*
-              $path = $data['file_cv']->store("public/cv");
 
-              $nombreArchivo = basename($path);
-
-              return User::create([
-                  'user_id' => $data['user_id'],
-                  'first_name' => $data['first_name'],
-                  'last_name' => $data['last_name'],
-                  'genre' => $data['genre'],
-                  'birth_date' => $data['birth_date'],
-                  'phone' => $data['phone'],
-                  'address' => $data['address'],
-                  'city' => $data['city'],
-                  'studies' => $data['studies'],
-                  'degree' => $data['degree'],
-                  'file_cv' => $nombreArchivo,
-              ]);
-*/
     }
 
     /**
@@ -61,14 +39,13 @@ class BiographyController extends Controller
      */
     public function store(Request $request)
     {
-        dd("STORE de BiographyController", $request, $request->first_name);
+        // dd("STORE de BiographyController", $request, $request->first_name);
 
-        // $path = $request->file_cv->store("/storage/cv");
-        $path = $request->file_cv;
+        $path = $request->file_cv->store("/public/cv");
         $nombreArchivo = basename($path);
 
-        // $biography=new Biography;
-        $biography->user_id=$request->user_id;
+        $biography=new Biography;
+        $biography->user_id=Auth::user()->id;
         $biography->first_name=$request->first_name;
         $biography->last_name=$request->last_name;
         $biography->genre=$request->genre;
@@ -95,7 +72,7 @@ class BiographyController extends Controller
     public function show($user_id)
     {
         $biografia = Biography::where("user_id","=",$user_id)->get();
-        $vac= compact("$biografia");
+        $vac= compact("biografia");
         return view("biografia",$vac);
     }
 
@@ -107,7 +84,10 @@ class BiographyController extends Controller
      */
     public function edit(Biography $biography)
     {
-        //
+      $biography= Biography::find($biography->id);
+      $vac= compact("biography");
+      return view("modifbiografia",$vac);
+
     }
 
     /**
@@ -119,7 +99,26 @@ class BiographyController extends Controller
      */
     public function update(Request $request, Biography $biography)
     {
-        //
+        $biography= Biography::find($biography->id);
+        $path = $request->file_cv->store("/public/cv");
+        $nombreArchivo = basename($path);
+
+        $biography->user_id=Auth::user()->id;
+        $biography->first_name=$request->first_name;
+        $biography->last_name=$request->last_name;
+        $biography->genre=$request->genre;
+        $biography->birth_date=$request->birth_date;
+        $biography->phone=$request->phone;
+        $biography->address=$request->address;
+        $biography->city=$request->city;
+        $biography->studies=$request->studies;
+        $biography->degree=$request->degree;
+        $biography->file_cv=$request->$nombreArchivo;
+        // dd("funcion STORE de BiographyController", $biography);
+
+        $biography->save();
+        return redirect ("/biografia{{$biografia->id}}");
+
     }
 
     /**

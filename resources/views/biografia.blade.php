@@ -1,18 +1,9 @@
- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Biografia</title>
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
 
-<body>
-
- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
-  {{-- @dd($registro) --}}
+  {{-- @dd($biografia) --}}
 
   <div class="container">
       <div class="row justify-content-center">
@@ -21,54 +12,56 @@
                   <div class="card-header">{{ __('Mi Biografía') }}</div>
                     <div class="card-body">
 
-                      @forelse ($registro as $biografia)
+                      @forelse ($biografia as $biography)
 
                         <div class="form-group row">
                           <div class="col-md-6">
-                            <p>Nombre: {{$biografia->first_name}}</p>
+                            <p>Nombre: {{$biography->first_name}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Apellido: {{$biografia->last_name}}</p>
+                            <p>Apellido: {{$biography->last_name}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Fecha Nacimiento: {{$biografia->birth_date}}</p>
+                            <p>Fecha Nacimiento: {{$biography->birth_date}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Celular: {{$biografia->phone}}</p>
+                            <p>Celular: {{$biography->phone}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Domicilio: {{$biografia->address}}</p>
+                            <p>Domicilio: {{$biography->address}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Localidad: {{$biografia->city}}</p>
+                            <p>Localidad: {{$biography->city}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Estudios: {{$biografia->studies}}</p>
-                            <p>Título obtenido: {{$biografia->degree}}</p>
+                            <p>Estudios: {{$biography->studies}}</p>
+                            <p>Título obtenido: {{$biography->degree}}</p>
                           </div>
                           <div class="col-md-4">
                             <p>Archivo con CV: </p>
                           </div>
-                            <img src="/storage/cv{{$biografia->file_cv}}">
+                            <img src="/storage/cv{{$biography->file_cv}}">
                         </div>
 
-                        <form method="POST" action="/modifbiografia/{{$biografia}}">
+                        {{-- <form method="POST" action="/modifbiografia/{{$biography}}" enctype="multipart/form-data"> --}}
 
                             @csrf
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <a href="/modifbiografia/{{$biography}}" class="btn btn-primary">Actualizar Biografia</a>
+
+                                    {{-- <button type="submit" class="btn btn-primary">
                                         {{ __('Actualizar Biografia') }}
-                                    </button>
+                                    </button> --}}
                                 </div>
                             </div>
-                          </form>
+                          {{-- </form> --}}
                         </div>
 
                       @empty
                         <div class="form-group row">
                           <p>No cargaste tu biografia aun</p>
-                          <form method="POST" action="/altabiografia/{{$user_id}}">
+                          <form method="POST" action="/altabiografia/{{$user_id}}" enctype="multipart/form-data">
 
                               @csrf
                               <div class="form-group row mb-0">
@@ -87,9 +80,5 @@
                 </div>
               </div>
             </div>
-          </div>
 
-  </section>
-
-</body>
-</html>
+  @endsection
