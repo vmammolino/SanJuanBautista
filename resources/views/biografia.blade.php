@@ -12,72 +12,77 @@
 
 @section('content')
 
+  {{-- @dd($registro) --}}
+
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="card">
                   <div class="card-header">{{ __('Mi Biografía') }}</div>
-                  <div class="card-body">
-                  @forelse ($registro as $biografia)
+                    <div class="card-body">
 
-                    <div class="form-group row">
-                      <div class="col-md-6">
-                        <p>Nombre: {{$biografia->first_name}}</p>
-                      </div>
-                      <div class="col-md-6">
-                        <p>Apellido: {{$biografia->last_name}}</p>
-                      </div>
-                      <div class="col-md-6">
-                        <p>Fecha Nacimiento: {{$biografia->birth_date}}</p>
-                      </div>
-                      <div class="col-md-6">
-                        <p>Celular: {{$biografia->phone}}</p>
-                      </div>
-                      <div class="col-md-6">
-                        <p>Domicilio: {{$biografia->address}}</p>
-                      </div>
-                      <div class="col-md-6">
-                        <p>Localidad: {{$biografia->city}}</p>
-                      </div>
-                      <div class="col-md-6">
-                        <p>Estudios: {{$biografia->studies}}</p>
-                        <p>Título obtenido: {{$biografia->degree}}</p>
-                      </div>
-                      <div class="col-md-4">
-                        <p>Archivo con CV: </p>
-                      </div>
-                        <img src="/storage/cv{{$biografia->file_cv}}">
-                    </div>
+                      @forelse ($registro as $biografia)
 
-                    <form method="POST" action="/modifbiografia">
-                        @csrf
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Actualizar Biografia') }}
-                                </button>
-                            </div>
-                        </div>
-                      </form>
-                    </div>
-
-
-                  @empty
-                    <div class="form-group row">
-                      <p>No cargaste tu biografia aun</p>
-                      <form method="POST" action="/altabiografia">
-                          @csrf
-                          <div class="form-group row mb-0">
-                              <div class="col-md-6 offset-md-4">
-                                  <button type="submit" class="btn btn-primary">
-                                      {{ __('Cargar Biografia') }}
-                                  </button>
-                              </div>
+                        <div class="form-group row">
+                          <div class="col-md-6">
+                            <p>Nombre: {{$biografia->first_name}}</p>
                           </div>
-                        </form>
-                      </div>
+                          <div class="col-md-6">
+                            <p>Apellido: {{$biografia->last_name}}</p>
+                          </div>
+                          <div class="col-md-6">
+                            <p>Fecha Nacimiento: {{$biografia->birth_date}}</p>
+                          </div>
+                          <div class="col-md-6">
+                            <p>Celular: {{$biografia->phone}}</p>
+                          </div>
+                          <div class="col-md-6">
+                            <p>Domicilio: {{$biografia->address}}</p>
+                          </div>
+                          <div class="col-md-6">
+                            <p>Localidad: {{$biografia->city}}</p>
+                          </div>
+                          <div class="col-md-6">
+                            <p>Estudios: {{$biografia->studies}}</p>
+                            <p>Título obtenido: {{$biografia->degree}}</p>
+                          </div>
+                          <div class="col-md-4">
+                            <p>Archivo con CV: </p>
+                          </div>
+                            <img src="/storage/cv{{$biografia->file_cv}}">
+                        </div>
 
-                  @endforelse
+                        <form method="POST" action="/modifbiografia/{{$biografia}}">
+
+                            @csrf
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Actualizar Biografia') }}
+                                    </button>
+                                </div>
+                            </div>
+                          </form>
+                        </div>
+
+                      @empty
+                        <div class="form-group row">
+                          <p>No cargaste tu biografia aun</p>
+                          <form method="POST" action="/altabiografia/{{$user_id}}">
+
+                              @csrf
+                              <div class="form-group row mb-0">
+                                  <div class="col-md-6 offset-md-4">
+                                      <button type="submit" class="btn btn-primary">
+                                          {{ __('Cargar Biografia') }}
+                                      </button>
+                                  </div>
+                              </div>
+                            </form>
+                          </div>
+
+                      @endforelse
+
                   </div>
                 </div>
               </div>

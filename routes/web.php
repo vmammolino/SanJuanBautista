@@ -37,12 +37,17 @@ Route::post("/abmposteos","PostController@store");
 /* Biografia del usuario */
 Route::get("/biografia/{user_id}", "BiographyController@index");
 
-Route::post("/biografia/{user_id}", "BiographyController@store");
-
+Route::get("/altabiografia/{user_id}", "BiographyController@create");
 Route::post("/altabiografia/{user_id}", "BiographyController@create");
 
+<<<<<<< HEAD
 /*Formulario de MODIFICACION de posteo get y post*/
 Route::get("/modifPosteos/{id}", "PostController@modifPosteo")->middleware("auth");
+=======
+Route::get("/modifbiografia/{user_id}", "BiographyController@store");
+Route::post("/modifbiografia/{user_id}", "BiographyController@store");
+
+>>>>>>> 4a6aecb2e4868886a0ba813976fa6572dfe5c3d3
 
 Route::post("/modifPosteos","PostController@store");// ver si no tengo que usar update
 

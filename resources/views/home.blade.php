@@ -5,7 +5,7 @@
 @section('content')
 
  @guest
-      <div class="logo-container">
+      <div class="button-container">
 <!--               <img src="/imagenes_sitio/logo.png" class="logo" alt="Logo SJB" width="150" height="150">  -->
 
            <div class="btn-container">
@@ -17,11 +17,12 @@
      </div>
 
    @else
+     <body style="background-image: none">
 
        {{-- Cambio por un boton con el mail y avatar del usuario y en el boton
        se despliega menu para cargar BIOGRAFIA / MIS POSTEOS / CERRAR SESION   --}}
       <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn btn-outline-primary dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
           <span>{{Auth::user()->name}}</span>
         </a>
@@ -45,7 +46,7 @@
           </article>
 
           <article class="post">
-            <h2>OFERTAS DE CAPACITACIÓN</h2>
+            <h2>CAPACITACIONES</h2>
             <div class="photo-container">
               <a href="/posteoPorTipo/2" >
                 <img class="photo" src="/imagenes_sitio/capacitacion.png" alt="foto capacitacion">

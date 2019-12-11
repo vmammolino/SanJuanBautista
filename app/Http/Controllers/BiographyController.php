@@ -15,7 +15,7 @@ class BiographyController extends Controller
     public function index($user_id)
     {
       $registro = Biography::where("user_id","=",$user_id)->get();
-      // dd("user : ", $user_id, $registro);
+        // dd("user : ", $user_id, $registro);
 
       $vac= compact("registro");
       // dd("VAC: ", $vac, $registro);
@@ -61,25 +61,28 @@ class BiographyController extends Controller
      */
     public function store(Request $request)
     {
-        dd("Estoy en funcion STORE de BiographyController", $request);
-        $path = $request->file_cv->store("public/cv");
+        dd("STORE de BiographyController", $request, $request->first_name);
+
+        // $path = $request->file_cv->store("/storage/cv");
+        $path = $request->file_cv;
         $nombreArchivo = basename($path);
 
-        $post=new Post;
-        $post->user_id=$request->user_id;
-        $post->first_name=$request->first_name;
-        $post->last_name=$request->last_name;
-        $post->genre=$request->genre;
-        $post->birth_date=$request->birth_date;
-        $post->phone=$request->phone;
-        $post->address=$request->address;
-        $post->city=$request->city;
-        $post->studies=$request->studies;
-        $post->degree=$request->degree;
-        $post->file_cv=$request->$nombreArchivo;
+        // $biography=new Biography;
+        $biography->user_id=$request->user_id;
+        $biography->first_name=$request->first_name;
+        $biography->last_name=$request->last_name;
+        $biography->genre=$request->genre;
+        $biography->birth_date=$request->birth_date;
+        $biography->phone=$request->phone;
+        $biography->address=$request->address;
+        $biography->city=$request->city;
+        $biography->studies=$request->studies;
+        $biography->degree=$request->degree;
+        $biography->file_cv=$request->$nombreArchivo;
+        // dd("funcion STORE de BiographyController", $biography);
 
-        $post->save();
-        return redirect ("/biografia");
+        $biography->save();
+        return redirect ("/biografia{{$biografia->id}}");
     }
 
     /**
