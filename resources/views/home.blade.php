@@ -30,7 +30,11 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="/biografia/{{Auth::user()->id}}">Biografia</a>
           <a class="dropdown-item" href="/posteoPorUser/{{Auth::user()->id}}">Mis Posteos</a>
-          <a class="dropdown-item" href="/{{Auth::logout()}}">Cerrar Sesion</a>
+          <form class="" action="/logout" method="post">
+            @csrf
+            <button class="dropdown-item" type="submit" name="button">Cerrar Sesion</button>
+          </form>
+
         </div>
       </div>
 

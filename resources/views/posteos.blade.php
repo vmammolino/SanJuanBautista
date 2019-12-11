@@ -28,14 +28,14 @@
         <div class="col-md-8">
     <h2>QUERES AGREGAR UN NUEVO POSTEO</h2>
     <div class="">
-      <form class="" action="\abmposteos" method="get">
+      {{-- <form class="" action="\abmposteos" method="get">
           @csrf
         <button type="submit" class="btn btn-success" >
           CARGAR
           NUEVO
         </button>
-      </form>
-
+      </form> --}}
+<a href="\abmposteos"class="btn btn-success">CARGAR NUEVO</a>
     </div>
     <div class="">
       <form class="" action="\" method="get">
