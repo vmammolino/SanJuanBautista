@@ -25,7 +25,7 @@ class PostController extends Controller
     {
       $post= Post::where("type_id","=",$type_id)->get();
       $vac= compact("post");
-      return view("posteos",$vac);
+      return view("posteoPorTipo",$vac);
         //
     }
     // MUESTRA LOS POSTEOS POR USUARIO
@@ -147,6 +147,14 @@ class PostController extends Controller
       if ($request->image!==null)
         {
           // {{$request->image}};
+          // <img  src="/storage/posteo/{{$posteo->image}}>
+          // $image="/storage/posteo/$post->image";
+          // $nombreImagen=basename($image);
+          // @dd(basename($image));
+          // unlink(basename("/storage/posteo/$post->image"));
+        //  $image="public/posteo/$post->image";
+          // unlink($image);
+   // @dd($image);
           $path = $request->image->store("public/posteo");
           $nombreArchivo = basename($path);
           $post->image=$nombreArchivo;

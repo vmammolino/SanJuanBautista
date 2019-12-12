@@ -11,7 +11,9 @@
     <div class="container">
         <div class="row justify-content-center">
           <section class ="posteos">
-            <h2>Bien venido "{{Auth::user()->name}}".Estos son tus posteos</h2>
+
+
+            <h2>Total de posteos por categoria</h2>
             @forelse ($post as $posteo)
               <article class="posteo">
                 <a href="/posteo/{{$posteo->id}}" >
