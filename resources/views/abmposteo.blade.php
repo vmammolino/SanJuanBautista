@@ -94,7 +94,7 @@
                             </div>
                         </div>
                       </form>
-                      <form class="" action="/posteoPorUser/{{Auth::user()->id}}"   method="get">
+                        <form class="" action="/posteoPorUser/{{Auth::user()->id}}"   method="get">
                         @csrf
                         <button type="submit" class="btn btn-link">
                          {{ __('VOLVER') }}

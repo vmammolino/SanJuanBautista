@@ -1,11 +1,17 @@
-@extends('template')
-@section('title', 'Posteos')
+@extends('layouts.app')
+{{-- @section('title', 'Posteos') --}}
+
 
 @section('content')
+
+  @guest
+
+  @else
+
     <div class="container">
         <div class="row justify-content-center">
-          {{-- <h2>Bien venido "{{Auth::user()->name}}".Estos son tus posteos</h2> --}}
           <section class ="posteos">
+            {{-- <h2>Bien venido "{{Auth::user()->name}}".Estos son tus posteos</h2> --}}
             @forelse ($post as $posteo)
               <article class="posteo">
                 <a href="/posteo/{{$posteo->id}}" >
@@ -28,23 +34,12 @@
         <div class="col-md-8">
     <h2>QUERES AGREGAR UN NUEVO POSTEO</h2>
     <div class="">
-      {{-- <form class="" action="\abmposteos" method="get">
-          @csrf
-        <button type="submit" class="btn btn-success" >
-          CARGAR
-          NUEVO
-        </button>
-      </form> --}}
-<a href="\abmposteos"class="btn btn-success">CARGAR NUEVO</a>
+    <a href="\abmposteos"class="btn btn-success">CARGAR NUEVO</a>
     </div>
     <div class="">
-      <form class="" action="\" method="get">
-          @csrf
-        <button type="submit" class="btn btn-link"> >
-          VOLVER
-        </button>
-      </form>
+      <a href="\"class="btn btn-link">VOLVER</a>
     </div>
   </div>
   </div>
+  @endguest
 @endsection

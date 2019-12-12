@@ -1,14 +1,21 @@
-@extends('template')
-@section('title', 'Detalle de posteos')
+@extends('layouts.app')
 
 @section('content')
+
+
+  @guest
+
+
+  @else
+
+
     <h2>Detalle de Posteo</h2>
     <img  src="/storage/posteo/{{$posteo->image}}">
     <p>{{$posteo->title}}</p>
     <p>{{$posteo->description}}</p>
     <a href="//{{$posteo->link}}" target="_blank" >{{$posteo->link}}</a>
 
-{{-- @dd($posteo->id); --}}
+
     <div class="row justify-content-center">
         <div class="col-md-8">
     <h2>QUERES MODIFICAR EL POSTEO</h2>
@@ -27,14 +34,10 @@
        </form>
     </div>
     <div class="">
-      <form class="" action="\posteos" method="get">
-
-        <button type="submit" class="btn btn-link"> >
-          VOLVER
-        </button>
-      </form>
+      <a href="\"class="btn btn-link">VOLVER</a>
     </div>
-  </div>
-  </div>
 
+  </div>
+  </div>
+@endguest
 @endsection
