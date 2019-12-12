@@ -131,6 +131,34 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+
+
+// $post=new Post
+      // $postId =$request->id;
+
+      $post=Post::Find($request->id);
+// @dd($post);
+      $post->title=$request->title;
+      $post->type_id=$request->type_id;
+      $post->description=$request->description;
+      $post->link=$request->link;
+
+      if ($request->image!==null)
+        {
+          // {{$request->image}};
+          $path = $request->image->store("public/posteo");
+          $nombreArchivo = basename($path);
+          $post->image=$nombreArchivo;
+        }
+      //$post->user_id=Auth::user()->id;
+      //$post->image=$nombreArchivo;
+  // @dd($post);
+  $post->save();
+// @dd($request->user_id);
+  return redirect("/posteoPorUser/{$request->user_id}");
+      // @dd(Auth::user()->id);
+
         //
     }
 
@@ -142,29 +170,12 @@ class PostController extends Controller
      */
     public function destroy(Request $request)
   {
-    // {dd($request->id);
-
-// {dd($request->user_id);
 
       $user=$request->user_id;
       $id=$request->id;
       $posteo=Post::Find($id);
       $posteo->delete();
-      return redirect ("/posteoPorUser/{user_id}");
-      // $path = $request->image->store("public/posteo");
-      // $nombreArchivo = basename($path);
-      //
-      //  $post=new Post;
-      //  $post->title=$request->title;
-      //  $post->type_id=$request->type_id;
-      //  $post->description=$request->description;
-      //  $post->link=$request->link;
-      //  $post->user_id=Auth::user()->id;
-      //  $post->image=$nombreArchivo;
-      //
-      //  $post->save();
-      //  return redirect ("/abmposteos");
+      return redirect ("/posteoPorUser/{$request->user_id}");
 
-        // return redirect /indexPorUser();//
     }
 }

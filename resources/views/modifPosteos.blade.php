@@ -11,17 +11,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
- {{-- @dd($posteo); --}}
                 <div class="card-header">{{ __('MODIFICACION DE POSTEO') }}</div>
                 <div class="card-body">
                     <form method="POST" action="/modifPosteos"  enctype="multipart/form-data">
                         @csrf
-
+                            <input id="id" type="hidden"  name="id" value="{{$posteo->id}}">
+                            <input id="user_id" type="hidden"  name="user_id" value="{{$posteo->user_id}}">
                         <div class="form-group row">
                             <label for="type_id" class="col-md-4 col-form-label text-md-right">{{ __('CATEGORIA') }}</label>
-                            {{--  --}}
- {{-- @dd($posteo->type_id); --}}
-                            <select name="type_id" id="type_id" >
+                             <select name="type_id" id="type_id" >
                               @switch($posteo->type_id)
                               @case(1)
                               <option value="1" selected>TRABAJO</option>
@@ -48,8 +46,7 @@
                               <option value="4"selected>GRADUACION</option>
                               @break
                               @endswitch
-
-                            </select>
+                             </select>
                                 @error('type_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -71,15 +68,9 @@
                         <div class="form-group row">
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('DESCRIPCIÓN') }}</label>
                             <div class="col-md-6">
-                                {{-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> --}}
-                                  {{-- agregue esto --}}
+                              <textarea id="description" rows="4" cols="50" name="description"> {{$posteo->description}}
 
-                                  {{-- <br> --}}
-                                  <textarea id="description" rows="4" cols="50" name="description"> {{$posteo->description}}
-
-                                  </textarea>
-
-                                  {{-- hasta aca --}}
+                              </textarea>
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
