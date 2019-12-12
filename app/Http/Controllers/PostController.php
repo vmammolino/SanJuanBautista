@@ -8,7 +8,7 @@ use Auth;
 
 class PostController extends Controller
 {
-    /**
+    /**MUESTRA TODOS LOS POSTEOS DEL SITIO
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -20,6 +20,7 @@ class PostController extends Controller
       return view("posteos",$vac);
         //
     }
+    // MUESTRA LOS POSTEOS POR CATEGORIA
     public function indexPorTipoPosteo($type_id)
     {
       $post= Post::where("type_id","=",$type_id)->get();
@@ -27,6 +28,7 @@ class PostController extends Controller
       return view("posteos",$vac);
         //
     }
+    // MUESTRA LOS POSTEOS POR USUARIO
     public function indexPorUser($user_id)
     {
       $post= Post::where("user_id","=",$user_id)->get();
@@ -34,7 +36,7 @@ class PostController extends Controller
       return view("posteos",$vac);
         //
     }
-    /**
+    /**DEVUELVE LA VISTA AL ALTA DE UN POSTEO
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -45,17 +47,14 @@ class PostController extends Controller
         return view ("abmposteo");
     }
 
-    public function modifPosteo($id)
-    {
-    // aca habria que mandarle todos los datos del posteo
-    $post= Post::where("id","=",$id)->get();
-    $vac= compact("post");
-    return view("modifPosteos",$vac);
+    // public function modifPosteo($id)
+    // {
+    // // aca habria que mandarle todos los datos del posteo
+    // $post= Post::where("id","=",$id)->get();
+    // $vac= compact("post");
+    // return view("modifPosteos",$vac);
 
-    }
-
-
-
+    // }
     // /**
     //  * Get a validator for an incoming registration request.
     //  *
@@ -73,7 +72,7 @@ class PostController extends Controller
      //        'image' => ['required', 'file', "image"],
      //     ]);
      // }
-    /**
+    /** ALTA DE POSTEO
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -97,7 +96,7 @@ class PostController extends Controller
       return redirect ("/abmposteos");
     }
 
-    /**
+    /**MUESTRA UN POSTEO EN DETALLLE
      * Display the specified resource.
      *
      * @param  \App\Post  $post
@@ -110,15 +109,17 @@ class PostController extends Controller
       return view("detallePosteo",$vac);
     }
 
-    /**
+    /**MUESTRA EL FORMULARIO CON EL POSTEO A MODIFICAR
      * Show the form for editing the specified resource.
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-
+      $posteo= Post::Find($id);
+      $vac= compact("posteo");
+      return view("modifPosteos",$vac);
     }
 
     /**

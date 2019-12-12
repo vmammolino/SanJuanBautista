@@ -15,7 +15,7 @@
             @forelse ($post as $posteo)
               <article class="posteo">
                 <a href="/posteo/{{$posteo->id}}" >
-                  <img  src="/storage/posteo/{{$posteo->image}}" width="150px" heigth="150px">
+                  <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
                 </a>
                 <a href="/posteo/{{$posteo->id}}" >
                   <p>{{$posteo->title}}</p>

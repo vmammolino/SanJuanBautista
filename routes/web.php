@@ -19,11 +19,11 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
-
+/*Muestra todos los posteos del sitio*/
 Route::get("/posteos", "PostController@index");
-
+/*Muestra un posteo en detalle*/
 Route::get("/posteo/{id}","PostController@show");
-
+/*Muestra todos los posteos por categoria*/
 Route::get("/posteoPorTipo/{type_id}","PostController@indexPorTipoPosteo");
 /*Posteos por usuario*/
 Route::get("/posteoPorUser/{user_id}","PostController@indexPorUser");
@@ -33,14 +33,11 @@ Route::get("/abmposteos", "PostController@create")->middleware("auth");
 
 Route::post("/abmposteos","PostController@store");
 /*Formulario de MODIFICACION de posteo get y post*/
-Route::get("/modifPosteos/{id}", "PostController@modifPosteo")->middleware("auth");
+Route::post("/modifPosteos/{id}", "PostController@edit")->middleware("auth");
 
-Route::post("/modifPosteos","PostController@store");// ver si no tengo que usar update
+Route::post("/modifPosteos","PostController@update");
 
-
-
-/*Formulario borrar posteo get y post*/
-// Route::get("/detallePosteo/{id}", "PostController@modifPosteo")->middleware("auth");
+/*Formulario borrar posteo */
 
 Route::post("/borrarPosteo","PostController@destroy");
 
