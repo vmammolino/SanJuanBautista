@@ -11,9 +11,22 @@
     <div class="container">
         <div class="row justify-content-center">
           <section class ="posteos">
-
-
-            <h2>Total de posteos por categoria</h2>
+            {{-- @dd($post[1]["type_id"]); --}}
+            @switch($post[1]["type_id"])
+            @case(1)
+              <h2>Total de posteos de "Trabajo"</h2>
+            @break
+            @case(2)
+            <h2>Total de posteos de "Capacitación"</h2>
+            @break
+            @case(3)
+            <h2>Total de posteos de "Emprendimientos"</h2>
+            @break
+            @case(4)
+            <h2>Total de posteos de "Graduación"</h2>
+            @break
+            @endswitch
+            {{-- <h2>Total de posteos por categoria</h2> --}}
             @forelse ($post as $posteo)
               <article class="posteo">
                 <a href="/posteo/{{$posteo->id}}" >
