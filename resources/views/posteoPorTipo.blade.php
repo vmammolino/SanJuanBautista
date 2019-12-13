@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-center">
           <section class ="posteos">
-            {{-- @dd($post[1]["type_id"]); --}}
+
             @switch($post[1]["type_id"])
             @case(1)
               <h2>Total de posteos de "Trabajo"</h2>
@@ -26,7 +26,7 @@
             <h2>Total de posteos de "Graduación"</h2>
             @break
             @endswitch
-            {{-- <h2>Total de posteos por categoria</h2> --}}
+
             @forelse ($post as $posteo)
               <article class="posteo">
                 <a href="/posteo/{{$posteo->id}}" >
@@ -35,12 +35,11 @@
                 <a href="/posteo/{{$posteo->id}}" >
                   <p>{{$posteo->title}}</p>
                 </a>
-                  {{-- <span class="fas fa-thumbs-up"></span> --}}
-                  <span style="font-size: 48px; color: Dodgerblue;">
-                  <i class="fas fa-thumbs-up"></i>
-                  </span>
-                {{-- <i class="fas fa-thumbs-up"></i> --}}
-              </article>
+                <a href="" class="btn btn-link">
+                <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" >
+                </a>
+                </article>
+
 
               @empty
               <p>'No tenemos posteos disponibles'</p>
