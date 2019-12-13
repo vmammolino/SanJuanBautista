@@ -148,12 +148,15 @@ class PostController extends Controller
         {
           // {{$request->image}};
           // <img  src="/storage/posteo/{{$posteo->image}}>
-          // $image="/storage/posteo/$post->image";
-          // $nombreImagen=basename($image);
-          // @dd(basename($image));
+// dd($image);
+
+            //$image="/storage/app/public/posteo/$post->image";
+          //  dd($image);
+          //  $nombreImagen=basename($image);
+          //  @dd(basename($image));
           // unlink(basename("/storage/posteo/$post->image"));
         //  $image="public/posteo/$post->image";
-          // unlink($image);
+           //unlink($image);
    // @dd($image);
           $path = $request->image->store("public/posteo");
           $nombreArchivo = basename($path);

@@ -35,9 +35,14 @@
                 <a href="/posteo/{{$posteo->id}}" >
                   <p>{{$posteo->title}}</p>
                 </a>
+                  {{-- <span class="fas fa-thumbs-up"></span> --}}
+                  <span style="font-size: 48px; color: Dodgerblue;">
+                  <i class="fas fa-thumbs-up"></i>
+                  </span>
+                {{-- <i class="fas fa-thumbs-up"></i> --}}
               </article>
 
-            @empty
+              @empty
               <p>'No tenemos posteos disponibles'</p>
 
             @endforelse
