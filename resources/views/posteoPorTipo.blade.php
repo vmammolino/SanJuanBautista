@@ -32,13 +32,12 @@
                 <a href="/posteo/{{$posteo->id}}" >
                   <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
                 </a>
+                <a href="" class="btn btn-link">
+                <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" > ME GUSTA
+                </a>
                 <a href="/posteo/{{$posteo->id}}" >
                   <p>{{$posteo->title}}</p>
-                </a>
-                <a href="" class="btn btn-link">
-                <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" >
-                </a>
-                </article>
+              </article>
 
 
               @empty
