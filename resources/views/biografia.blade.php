@@ -3,7 +3,8 @@
 
 @section('content')
 
-  {{-- @dd($biografia) --}}
+
+ {{-- @dd($biography) --}}
 
   <div class="container">
       <div class="row justify-content-center">
@@ -12,56 +13,57 @@
                   <div class="card-header">{{ __('Mi Biografía') }}</div>
                     <div class="card-body">
 
-                      @forelse ($biografia as $biography)
+                      @forelse ($biography as $regbio)
 
                         <div class="form-group row">
                           <div class="col-md-6">
-                            <p>Nombre: {{$biography->first_name}}</p>
+                            <p>Nombre: {{$regbio->first_name}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Apellido: {{$biography->last_name}}</p>
+                            <p>Apellido: {{$regbio->last_name}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Fecha Nacimiento: {{$biography->birth_date}}</p>
+                            <p>Fecha Nacimiento: {{$regbio->birth_date}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Celular: {{$biography->phone}}</p>
+                            <p>Celular: {{$regbio->phone}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Domicilio: {{$biography->address}}</p>
+                            <p>Domicilio: {{$regbio->address}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Localidad: {{$biography->city}}</p>
+                            <p>Localidad: {{$regbio->city}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Estudios: {{$biography->studies}}</p>
-                            <p>Título obtenido: {{$biography->degree}}</p>
+                            <p>Estudios: {{$regbio->studies}}</p>
+                            <p>Título obtenido: {{$regbio->degree}}</p>
                           </div>
                           <div class="col-md-4">
                             <p>Archivo con CV: </p>
                           </div>
-                            <img src="/storage/cv{{$biography->file_cv}}">
+                            <img src="/storage/cv{{$regbio->file_cv}}">
                         </div>
 
-                        {{-- <form method="POST" action="/modifbiografia/{{$biography}}" enctype="multipart/form-data"> --}}
-
-                            @csrf
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <a href="/modifbiografia/{{$biography}}" class="btn btn-primary">Actualizar Biografia</a>
-
-                                    {{-- <button type="submit" class="btn btn-primary">
-                                        {{ __('Actualizar Biografia') }}
-                                    </button> --}}
-                                </div>
+                        @csrf
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                              <a href="/modifbiografia/{{$regbio->id}}" class="btn btn-primary">Actualizar Biografia</a>
                             </div>
-                          {{-- </form> --}}
+                        </div>
+
                         </div>
 
                       @empty
                         <div class="form-group row">
-                          <p>No cargaste tu biografia aun</p>
-                          <form method="POST" action="/altabiografia/{{$user_id}}" enctype="multipart/form-data">
+                          <h5>No cargaste tu biografia aun</h5><br>
+                          <div class="form-group row mb-0">
+                              <div class="col-md-6 offset-md-4">
+                                <a href="/altabiografia" class="btn btn-primary">Cargar Biografia</a>
+                              </div>
+                          </div>
+
+{{--
+                          <form method="POST" action="/altabiografia" enctype="multipart/form-data">
 
                               @csrf
                               <div class="form-group row mb-0">
@@ -71,7 +73,8 @@
                                       </button>
                                   </div>
                               </div>
-                            </form>
+                            </form> --}}
+
                           </div>
 
                       @endforelse

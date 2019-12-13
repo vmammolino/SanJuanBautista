@@ -38,27 +38,7 @@ Route::post("/modifPosteos/{id}", "PostController@edit")->middleware("auth");
 Route::post("/modifPosteos","PostController@update");
 
 /*Formulario borrar posteo */
-
 Route::post("/borrarPosteo","PostController@destroy");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -68,11 +48,11 @@ Route::post("/borrarPosteo","PostController@destroy");
 /* Biografia del usuario */
 Route::get("/biografia/{user_id}", "BiographyController@show");
 
-Route::get("/altabiografia/{user_id}", "BiographyController@create")->middleware("auth");
-Route::post("/altabiografia/{user_id}", "BiographyController@store");
+Route::get("/altabiografia", "BiographyController@create")->middleware("auth");
+Route::post("/altabiografia", "BiographyController@store");
 
-Route::get("/modifbiografia/{biography}", "BiographyController@edit")->middleware("auth");
-Route::post("modifbiografia/{id}", "BiographyController@update");
+Route::get("/modifbiografia/{id}", "BiographyController@edit")->middleware("auth");
+Route::post("modifbiografia", "BiographyController@update");
 
 
 // Route::get("/posteos", function(){
