@@ -7,6 +7,13 @@
     {{-- {{route(login)}}; --}}
 
   @else
+{{-- @DD(Auth::user()->id!=$posteo->user_id); --}}
+
+@if (Auth::user()->id!=$posteo->user_id)
+  <h2>NO TENÉS AUTORIZACIÓN PARA MODIFICAR UN POSTEO DE OTRO USUARIO</h2>
+@else
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -119,6 +126,7 @@
             </div>
         </div>
     </div>
-</div>
+@endif
+{{-- </div> --}}
   @endguest
 @endsection

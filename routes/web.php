@@ -40,8 +40,9 @@ Route::post("/modifPosteos","PostController@update");
 /*Formulario borrar posteo */
 Route::post("/borrarPosteo","PostController@destroy");
 
+/*Formulario de alta de like*/
 
-
+Route::post("/altaLike","LikeController@store")->middleware("auth");
 
 
 

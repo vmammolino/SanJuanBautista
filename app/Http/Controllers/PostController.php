@@ -79,8 +79,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {//dd($request);
-
+    {
      $path = $request->image->store("public/posteo");
      $nombreArchivo = basename($path);
 
