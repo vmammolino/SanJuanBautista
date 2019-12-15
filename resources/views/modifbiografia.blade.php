@@ -46,8 +46,19 @@
               <div class="form-group row">
                 <label for="genre" class="col-md-4 col-form-label text-md-right">{{ __('Género') }}</label>
                 <div class="col-md-6">
-                  <input id="genre" type="text" class="form-control @error('genre') is-invalid @enderror"
-                    name="genre" value="{{$biography->genre }}" required autocomplete="genre" autofocus>
+                  {{-- <input id="genre" type="text" class="form-control @error('genre') is-invalid @enderror"
+                    name="genre" value="{{$biography->genre }}" required autocomplete="genre" autofocus> --}}
+                    @if ($biography->genre == 1)
+                      <input id="genre" type="radio" checked class="@error('genre') is-invalid @enderror"
+                        name="genre" value="{{$biography->genre }}" required autocomplete="genre" autofocus> Femenino
+                        <input id="genre" type="radio" class="@error('genre') is-invalid @enderror"
+                          name="genre" value="{{$biography->genre }}" required autocomplete="genre" autofocus> Masculino
+                    @else
+                      <input id="genre" type="radio" class="@error('genre') is-invalid @enderror"
+                        name="genre" value="{{$biography->genre }}" required autocomplete="genre" autofocus> Femenino
+                      <input id="genre" type="radio" checked class="@error('genre') is-invalid @enderror"
+                        name="genre" value="{{$biography->genre }}" required autocomplete="genre" autofocus> Masculino
+                    @endif
                     @error('genre')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -61,6 +72,8 @@
               <div class="col-md-6">
                 <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror"
                   name="birth_date" value="{{$biography->birth_date}}" required autocomplete="birth_date" autofocus>
+                  {{-- <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror"
+                    name="birth_date" value="{{date('d/m/Y', strtotime($biography->birth_date))}}" required autocomplete="birth_date" autofocus> --}}
                   @error('birth_date')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -141,21 +154,13 @@
                   <input id="file_cv" type="file" class="form-control" name="file_cv">
               </div>
             </div>
-
-            <div class="form-group row mb-0">
-              <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
-                      {{ __('Guardar') }}
-                  </button>
-              </div>
+            
+            <div class="d-flex justify-content-center btn-action">
+              <button type="submit" class="btn btn-primary">
+                  {{ __('Guardar') }}
+              </button>
+              <a href="\"class="btn btn-link">Volver</a>
             </div>
-        </form>
-
-        <form class="" action="/"   method="get">
-          {{-- @csrf --}}
-          <button type="submit" class="btn btn-link">
-           {{ __('Volver') }}
-         </form>
 
         </div>
         </div>

@@ -39,9 +39,11 @@ class BiographyController extends Controller
      */
     public function store(Request $request)
     {
+        $newDateFormat = $request->birth_date;
         if ($request->birth_date!==null){
           $newDateFormat = date('Y/m/d', strtotime($request->birth_date));
         }
+        // @dd($request->birth_date, $newDateFormat);
 
         $nombreArchivo = "";
         if ($request->file_cv!==null){
@@ -107,6 +109,12 @@ class BiographyController extends Controller
         $biography= Biography::find($request->id);
         // @dd($request->id, $request->user_id, $request->last_name, $biography->id, $biography->user_id,  $biography->last_name);
 
+        $newDateFormat = $request->birth_date;
+        if ($request->birth_date!==null){
+          $newDateFormat = date('Y/m/d', strtotime($request->birth_date));
+        }
+        // @dd($request->birth_date, $newDateFormat);
+
         if ($request->file_cv!==null){
           $path = $request->file_cv->store("/public/cv");
           $nombreArchivo = basename($path);
@@ -116,7 +124,7 @@ class BiographyController extends Controller
         $biography->first_name=$request->first_name;
         $biography->last_name=$request->last_name;
         $biography->genre=$request->genre;
-        $biography->birth_date=$request->birth_date;
+        $biography->birth_date=$newDateFormat;
         $biography->phone=$request->phone;
         $biography->address=$request->address;
         $biography->city=$request->city;

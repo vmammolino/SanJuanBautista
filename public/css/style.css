@@ -16,30 +16,30 @@ li{
 }
 a {
   text-decoration: none;
-  color: #000;}
-/*mobile first*/
-.content{
-  background-image: url(/imagenes_sitio/fondo-cielo.png);
-  background-size: contain;
-  margin: 0 auto;
-
+  color: #000;
 }
+
+
 body{
-  background-image: url(/imagenes_sitio/comunidad.png);
-  background-size: 100%;
+  /* background-image: url(/imagenes_sitio/comunidad.png); */
+  background-image: url(/imagenes_sitio/fondo-cielo.png);
+  background-color: rgb(178, 205, 217); /* Used if the image is unavailable */
+  background-position: center;
+  background-repeat: no-repeat;
   margin:0 auto;
   font-family: 'Montserrat', sans-serif;
 }
 .main-header {
+  overflow: hidden;
   text-align:center;
-  margin: 0 auto;
+  margin-bottom: 40%;
+  /* margin: 0 auto; */
 }
 
 .logo{
   border-radius: 50%;
-  align-items: center;
   width: 20%;
-  margin-top: 0.2rem;
+  margin-top: 10%;
 }
 
 .main-header ul{
@@ -61,21 +61,21 @@ body{
   margin-bottom: 1%;
 }
 
-.button-container {
-    margin: 25% 10%;
-}
 
 .btn-container {
-    margin: 8 4em;
-    font-size: 1rem;
-    padding: 0.2rem 5rem;
+    margin-top: 40%
+    align-items: center;
+    font-size: 0.8em;
+    padding: 1rem
+}
+.btn-block{
+  font-size: 1em;
 }
 
 .dropdown {
-    font-size: 50%;
-    margin-right: 5%;
-    margin-left: 83%;
-    padding: 0.1rem;
+    float: right;
+    margin-top: 10%;
+    margin-right: 0.5%;
 }
 
 .categorias{
@@ -118,19 +118,6 @@ body{
 }
 
 /*posteos*/
-
-.posteos{
-  overflow: hidden;
-}
-.post{
-  width: 90%;
-  float:left;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  border: solid 3px rgba(102, 179, 255,0.3);
-}
-
 .post h2{
   background-color: RGB(120, 22, 22);
   text-align: center;
@@ -139,6 +126,7 @@ body{
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 3px;
+  padding:
 }
 .photo-container{
   position: relative;
@@ -187,7 +175,84 @@ body{
   border-radius: 10px;
 	cursor: pointer;
 }
-/*Media query para PC*/
+.field-text-area {
+  width: 100%
+}
+
+/* Paginas con consultas y modificaciones*/
+
+.posteos h2{
+  background-color: rgb(51, 48, 110);
+  color: white;
+  margin-top: 2%;
+}
+.one-post{
+  overflow: hidden;
+  border: 0.3em solid rgb(212, 211, 224);
+  margin-bottom: 1%;
+}
+.one-post-detail{
+  overflow: hidden;
+  margin-bottom: 1%;
+}
+.post-image{
+  float: left;
+}
+.post-image-detail{
+  margin: auto;
+  width: 40%;
+  border: 2px solid rgb(51, 48, 110);
+  padding: 1%;
+}
+.post-title{
+  float: right;
+  width: 50%;
+}
+.post-title h5{
+  margin-top: 2%;
+  font-size: 1rem;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 1%;
+}
+.post-title-detail{
+  float: none;
+  text-decoration: underline;
+  margin-top: 2%;
+  font-size: 1.5em;
+  font-weight: bold;
+  align-items: center;
+}
+.post-desc{
+  float: none;
+  margin-top: 2%;
+  font-size: 1em;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 1%;
+}
+.post-link{
+  float: none;
+  color: rgb(19, 41, 207);
+  text-decoration: underline;
+  margin-top: 2%;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 1%;
+}
+.post-like{
+  float: left;
+  margin-left: 10%;
+}
+
+.btn-action{
+  margin-top: 2%;
+}
+
+
+/********************     Media query para PC y Tablets  ********************/
 
 /* Para Laptop */
 /* @media (min-width: 1024px) { */
@@ -197,24 +262,30 @@ body{
   .main-header{
     overflow: hidden;
     position: relative;
+    margin-bottom: 20%;
   }
-  body{
+  /* body{
     background-image: url(/imagenes_sitio/inicio.png);
-    background-size: 100%;
-  }
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
+
   .logo{
-    border-radius: 50%;
-    align-items: center;
-    width: 25%;
+    width: 10%;
     margin-top: 0.5rem;
   }
-  .btn-container {
-      margin-top: 1%;
-      padding: 0.1rem 40rem 0.1rem 8rem;
+  .dropdown {
+      margin-top: 3%;
   }
 
-  .logo {
-     width: 10%;
+  .btn-container {
+      width: 100%;
+      margin-top: 20%;
+      padding: 0.1rem 30rem 0.1rem 2rem;
+      align-items: center;
+  }
+  .btn-block{
+    width: 60%;
   }
 
   .main-header ul{
@@ -232,10 +303,6 @@ body{
     font-size: 0.5em;
   }
 
-  .post{
-    width: 50%;
-  }
-
   .logo-footer{
     width: 30%;
   }
@@ -245,4 +312,10 @@ body{
     font-size: 1.5em;
   }
 
-}
+  .posteos{
+    overflow: hidden;
+  }
+  .one-post{
+    float: left;
+    width: 50%;
+  }

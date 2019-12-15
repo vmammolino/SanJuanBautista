@@ -23,7 +23,8 @@
                             <p>Apellido: {{$regbio->last_name}}</p>
                           </div>
                           <div class="col-md-6">
-                            <p>Fecha Nacimiento: {{$regbio->birth_date}}</p>
+                            <p>Fecha Nacimiento: {{date('d/m/Y', strtotime($regbio->birth_date))}}</p>
+                            {{-- <p>Fecha Nacimiento: {{$regbio->birth_date}}</p> --}}
                           </div>
                           <div class="col-md-6">
                             <p>Celular: {{$regbio->phone}}</p>
@@ -45,37 +46,23 @@
                         </div>
 
                         @csrf
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                              <a href="/modifbiografia/{{$regbio->id}}" class="btn btn-primary">Actualizar Biografia</a>
-                            </div>
-                        </div>
-
+                        <div class="d-flex justify-content-center btn-action">
+                          <a href="/modifbiografia/{{$regbio->id}}" class="btn btn-primary">Actualizar Biografía</a>
+                          <a href="\"class="btn btn-link">Volver</a>
                         </div>
 
                       @empty
                         <div class="form-group row">
-                          <h5>No cargaste tu biografia aun</h5><br>
-                          <div class="form-group row mb-0">
-                              <div class="col-md-6 offset-md-4">
-                                <a href="/altabiografia" class="btn btn-primary">Cargar Biografia</a>
-                              </div>
-                          </div>
+                          <div class="col-md-6">
+                            <h5>No cargaste tu biografía aún</h5><br>
 
-{{--
-                          <form method="POST" action="/altabiografia" enctype="multipart/form-data">
-
-                              @csrf
-                              <div class="form-group row mb-0">
-                                  <div class="col-md-6 offset-md-4">
-                                      <button type="submit" class="btn btn-primary">
-                                          {{ __('Cargar Biografia') }}
-                                      </button>
-                                  </div>
-                              </div>
-                            </form> --}}
+                            <div class="d-flex justify-content-center btn-action">
+                              <a href="/altabiografia" class="btn btn-primary">Cargar Biografía</a>
+                              <a href="\"class="btn btn-link">Volver</a>
+                            </div>
 
                           </div>
+                        </div>
 
                       @endforelse
 
@@ -83,5 +70,7 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
   @endsection

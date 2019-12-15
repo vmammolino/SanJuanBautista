@@ -21,15 +21,13 @@
 
 
     <div class="contenedor">
-
+{{--
      <header class="main-header">
        <img  class="logo" src="/imagenes_sitio/logo.png" alt="Logo San Juan Bautista">
-     </header>
+     </header> --}}
 
-     <main class="main-header">
        @yield('content')
 
-     </main>
     </div>
 
 

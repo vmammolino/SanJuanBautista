@@ -4,41 +4,47 @@
 
 @section('content')
 
- @guest
-      <div class="button-container">
-<!--               <img src="/imagenes_sitio/logo.png" class="logo" alt="Logo SJB" width="150" height="150">  -->
 
-           <div class="btn-container">
-             <a class="btn btn-light btn-block" href="{{ route('login') }}">Login</a>
-           </div>
-           <div class="btn-container">
-             <a class="btn btn-light btn-block" href="{{ route('register') }}">Registrarme</a>
-          </div>
+  <div class="contenedor">
+
+   <header class="main-header">
+     <img  class="logo" src="/imagenes_sitio/logo.png" alt="Logo San Juan Bautista">
+     @guest
+
+     @else
+       <div class="dropdown">
+         <a class="btn btn btn-outline-primary dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
+           <span>{{Auth::user()->name}}</span>
+         </a>
+
+       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+           <a class="dropdown-item" href="/biografia/{{Auth::user()->id}}">Biografia</a>
+           <a class="dropdown-item" href="/posteoPorUser/{{Auth::user()->id}}">Mis Posteos</a>
+           <form class="" action="/logout" method="post">
+             @csrf
+             <button class="dropdown-item" type="submit" name="button">Cerrar Sesion</button>
+           </form>
+
+         </div>
+       </div>
+
+     @endguest
+   </header>
+
+
+ @guest
+      <div class="btn-container">
+<!--    <img src="/imagenes_sitio/logo.png" class="logo" alt="Logo SJB" width="150" height="150">  -->
+
+         <a class="btn btn-light btn-block" href="{{ route('login') }}" role="button">Login</a>
+         <a class="btn btn-light btn-block" href="{{ route('register') }}" role="button">Registrarme</a>
+
      </div>
 
    @else
-     <body style="background-image: none">
-
-       {{-- Cambio por un boton con el mail y avatar del usuario y en el boton
-       se despliega menu para cargar BIOGRAFIA / MIS POSTEOS / CERRAR SESION   --}}
-      <div class="dropdown">
-        <a class="btn btn btn-outline-primary dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
-          <span>{{Auth::user()->name}}</span>
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="/biografia/{{Auth::user()->id}}">Biografia</a>
-          <a class="dropdown-item" href="/posteoPorUser/{{Auth::user()->id}}">Mis Posteos</a>
-          <form class="" action="/logout" method="post">
-            @csrf
-            <button class="dropdown-item" type="submit" name="button">Cerrar Sesion</button>
-          </form>
-
-        </div>
-      </div>
-
-      <section class="posteos">
+    <body style="background-image: none">
+    <section class="posteos">
 
           <article class="post">
             <h2>OFERTAS DE TRABAJO</h2>

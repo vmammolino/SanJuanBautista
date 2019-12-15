@@ -1,25 +1,12 @@
-{{-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Biografia</title>
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
-  <body>
-
-<h1>MI BIOGRAFIA</h1>
-<section class ="biografia"> --}}
-
-   {{-- @dd($biography)  --}}
-
 @extends('layouts.app')
+
 @section('content')
 
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header">{{ __('MI BIOGRAFIA') }}</div>
+          <div class="card-header">{{ __('Mi Biografía') }}</div>
             <div class="card-body">
 
               <form method="POST" action="/altabiografia"  enctype="multipart/form-data">
@@ -51,8 +38,12 @@
 
                 <div class="form-group row">
                     <label for="genre" class="col-md-4 col-form-label text-md-right">{{ __('Género') }}</label>
+                    <input id="genre" type="radio" class="@error('genre') is-invalid @enderror"
+                    name="genre" value=1 required autocomplete="genre" autofocus> Femenino
+                    <input id="genre" type="radio" class="@error('genre') is-invalid @enderror"
+                    name="genre" value=2 required autocomplete="genre" autofocus> Masculino
                     <div class="col-md-6">
-                        <input id="genre" type="text" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') }}" required autocomplete="genre" autofocus>
+                        {{-- <input id="genre" type="text" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') }}" required autocomplete="genre" autofocus> --}}
                         @error('genre')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -64,7 +55,7 @@
                 <div class="form-group row">
                     <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de Nacimiento') }}</label>
                     <div class="col-md-6">
-                        <input id="birth_date" type="text" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus>
+                        <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus>
                         @error('birth_date')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -140,20 +131,12 @@
                     </div>
                 </div>
 
-                <div class="form-group row mb-0">
-                    <div class="col-md-6 offset-md-4">
-                      <button type="submit" class="btn btn-success">
-                        {{ __('Guardar') }}
-                      </button>
-                    </div>
+                <div class="d-flex justify-content-center btn-action">
+                  <button type="submit" class="btn btn-primary">
+                    {{ __('Guardar') }}
+                  </button>
+                  <a href="\"class="btn btn-link">Volver</a>
                 </div>
-              </form>
-
-              <form class="" action="/"   method="get">
-               {{-- @csrf --}}
-               <button type="submit" class="btn btn-link">
-                {{ __('Volver') }}
-              </form>
 
             </div>
           </div>
