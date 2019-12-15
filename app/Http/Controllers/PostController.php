@@ -8,6 +8,7 @@ use Auth;
 
 class PostController extends Controller
 {
+
     /**MUESTRA TODOS LOS POSTEOS DEL SITIO
      * Display a listing of the resource.
      *
@@ -18,6 +19,7 @@ class PostController extends Controller
       $post= Post::all();
       $vac= compact("post");
       return view("posteos",$vac);
+
         //
     }
     // MUESTRA LOS POSTEOS POR CATEGORIA
