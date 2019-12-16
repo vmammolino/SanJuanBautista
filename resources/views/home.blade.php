@@ -10,7 +10,7 @@
       <img  class="logo" src="/imagenes_sitio/logo.png" alt="Logo San Juan Bautista">
     </header>
 
-     @guest
+    @guest
        <div class="fondo-container">
          <div class="btn-login-register">
             <a class="btn btn-light btn-block" href="{{ route('login') }}" role="button">Login</a>
@@ -18,8 +18,8 @@
          </div>
       </div>
 
-     @else
-       <div class="dropdown">
+    @else
+       {{-- <div class="dropdown">
          <a class="btn btn btn-outline-primary dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
            <span>{{Auth::user()->name}}</span>
@@ -35,7 +35,7 @@
            </form>
 
          </div>
-       </div>
+       </div> --}}
 
        <section class="posteos">
 
@@ -103,14 +103,8 @@
             </div>
          </div>
 
-<<<<<<< HEAD
       </section>
 
      @endguest
-=======
-        </section>
-      </div>
-      @endguest
->>>>>>> 6074406b21e696426186af3427dad9bd20382f3a
 
   @endsection

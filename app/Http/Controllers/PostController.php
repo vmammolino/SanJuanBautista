@@ -82,8 +82,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-     $path = $request->image->store("public/posteo");
-     $nombreArchivo = basename($path);
+      $nombreArchivo = "";
+      if ($request->image!==null){
+        $path = $request->image->store("public/posteo");
+        $nombreArchivo = basename($path);
+      }
 
       $post=new Post;
       $post->title=$request->title;
@@ -149,7 +152,7 @@ class PostController extends Controller
         $post->save();
 
         return redirect("/posteoPorUser/{$request->user_id}");
-    
+
     }
 
     /**BORRA UN POSTEO

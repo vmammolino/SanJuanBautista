@@ -40,7 +40,8 @@
                       <input type="hidden" name="type_id" value="{{$posteo->type_id}}">
                       @if (Auth::user()->id!=$posteo->user_id)
                       <button type="submit" class="btn btn-link" >
-                        <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" >
+                        {{-- <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" > --}}
+                        <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" style="object-fit: contain">
                         Me interesa!!
                       </button>
                     @endif

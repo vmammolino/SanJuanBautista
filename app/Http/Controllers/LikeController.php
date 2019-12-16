@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 use App\Like;
 use Illuminate\Http\Request;
 use Auth;
-<<<<<<< HEAD
-use Post;
-=======
+
 use App\Post;
->>>>>>> 6074406b21e696426186af3427dad9bd20382f3a
+
 
 class LikeController extends Controller
 {
@@ -25,7 +23,7 @@ class LikeController extends Controller
     // MUESTRA LOS LIKES POR USUARIO
     public function indexPorUser($user_id)
     {
-<<<<<<< HEAD
+
 
       $like= Like::where("user_id","=",$user_id)->get();
       // $post=New Post;
@@ -41,12 +39,12 @@ class LikeController extends Controller
       $vac= compact("like");
       return view("/likesPorUser",$vac);
         //
-=======
+
       $like= Like::where("user_id","=",$user_id)->get();
       $post= Post::all();
       $vac= compact("like", "post");
       return view("/likesPorUser",$vac);
->>>>>>> 6074406b21e696426186af3427dad9bd20382f3a
+
     }
 
     /**

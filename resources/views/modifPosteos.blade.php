@@ -117,28 +117,10 @@
                                       </div>
 
                                       <div class="d-flex justify-content-center btn-action">
-                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                         <a href="\"class="btn btn-link">Volver</a>
                                       </div>
 
-                                      {{-- <div class="d-flex justify-content-center btn-action">
-                                        <div class="form-group row mb-0">
-                                          <div class="col-md-6 offset-md-4">
-                                            <button type="submit" class="btn btn-success">
-                                              Guardar
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </form>
-
-                                    <div class="d-flex justify-content-center btn-action">
-                                      <form class="" action="/posteoPorUser/{{Auth::user()->id}}"   method="get">
-                                        {{-- @csrf --}}
-                                        <button type="submit" class="btn btn-link">
-                                          {{ __('Volver') }}
-                                      </form>
-                                    </div> --}}
                                 </div>
                               </div>
                           </div>

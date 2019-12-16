@@ -42,7 +42,7 @@
                           <div class="col-md-4">
                             <p>Archivo con CV: </p>
                           </div>
-                            <img src="/storage/cv{{$regbio->file_cv}}">
+                            <img src="/storage/cv/{{$regbio->file_cv}}"  height="100" width="75">
                         </div>
 
                         @csrf

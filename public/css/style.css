@@ -239,8 +239,8 @@ body{
 .post-image-detail{
   margin: auto;
   width: 40%;
-  border: 2px solid rgb(51, 48, 110);
-  padding: 1%;
+  /* border: 2px solid rgb(51, 48, 110);
+  padding: 1%; */
 }
 .post-title{
   float: right;
@@ -354,7 +354,7 @@ body{
 
   .one-post{
     float: left;
-    width: 50%;
+    width: 100%;
   }
   .photo-title-container{
     height: 300px;

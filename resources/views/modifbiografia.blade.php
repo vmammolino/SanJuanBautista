@@ -149,12 +149,12 @@
 
             <div class="form-group row">
               <label for="file_cv" class="col-md-4 col-form-label text-md-right">{{ __('Curriculum Vitae') }}</label>
-                <img  src="/storage/cv/{{$biography->file_cv}}">
+                <img  src="/storage/cv/{{$biography->file_cv}}"  height="100" width="75">
               <div class="col-md-6">
                   <input id="file_cv" type="file" class="form-control" name="file_cv">
               </div>
             </div>
-            
+
             <div class="d-flex justify-content-center btn-action">
               <button type="submit" class="btn btn-primary">
                   {{ __('Guardar') }}
