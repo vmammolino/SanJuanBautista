@@ -38,12 +38,12 @@
                       <input type="hidden" name="post_id" value="{{$posteo->id}}">
                       <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                       <input type="hidden" name="type_id" value="{{$posteo->type_id}}">
-                      {{-- <input type="hidden" name="like-id" value="{{$like->post-}}"> --}}
-
+                      @if (Auth::user()->id!=$posteo->user_id)
                       <button type="submit" class="btn btn-link" >
                         <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" >
                         Me interesa!!
                       </button>
+                    @endif
                     </form>
                     </div>
                     <br><br>
@@ -69,7 +69,7 @@
                       {{ __('Borrar Posteo') }}
                   </button>
                 </form>
-                <a href="\"class="btn btn-link">Volver</a>
+                <a href="\" class="btn btn-link">Volver</a>
               </div>
 
             </div>

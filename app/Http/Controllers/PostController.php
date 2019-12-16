@@ -133,13 +133,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
 
-
-
-// $post=new Post
-      // $postId =$request->id;
-
       $post=Post::Find($request->id);
-// @dd($post);
       $post->title=$request->title;
       $post->type_id=$request->type_id;
       $post->description=$request->description;
@@ -147,34 +141,18 @@ class PostController extends Controller
 
       if ($request->image!==null)
         {
-          // {{$request->image}};
-          // <img  src="/storage/posteo/{{$posteo->image}}>
-// dd($image);
-
-            //$image="/storage/app/public/posteo/$post->image";
-          //  dd($image);
-          //  $nombreImagen=basename($image);
-          //  @dd(basename($image));
-          // unlink(basename("/storage/posteo/$post->image"));
-        //  $image="public/posteo/$post->image";
-           //unlink($image);
-   // @dd($image);
           $path = $request->image->store("public/posteo");
           $nombreArchivo = basename($path);
           $post->image=$nombreArchivo;
         }
-      //$post->user_id=Auth::user()->id;
-      //$post->image=$nombreArchivo;
-  // @dd($post);
-  $post->save();
-// @dd($request->user_id);
-  return redirect("/posteoPorUser/{$request->user_id}");
-      // @dd(Auth::user()->id);
 
-        //
+        $post->save();
+
+        return redirect("/posteoPorUser/{$request->user_id}");
+    
     }
 
-    /**
+    /**BORRA UN POSTEO
      * Remove the specified resource from storage.
      *
      * @param  \App\Post  $post
