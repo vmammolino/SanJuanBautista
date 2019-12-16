@@ -26,21 +26,6 @@ class LikeController extends Controller
 
 
       $like= Like::where("user_id","=",$user_id)->get();
-      // $post=New Post;
-      // $post::all();
-       // $post= Post::where("user_id","=",$type_id)->get();
-
-        // @dd($post);
-
-
-      // $vac= compact("post");
-      // return view("posteoPorTipo",$vac);
-
-      $vac= compact("like");
-      return view("/likesPorUser",$vac);
-        //
-
-      $like= Like::where("user_id","=",$user_id)->get();
       $post= Post::all();
       $vac= compact("like", "post");
       return view("/likesPorUser",$vac);
