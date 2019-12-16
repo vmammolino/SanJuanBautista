@@ -36,13 +36,18 @@ Route::post("/abmposteos","PostController@store");
 Route::post("/modifPosteos/{id}", "PostController@edit")->middleware("auth");
 
 Route::post("/modifPosteos","PostController@update");
-
 /*Formulario borrar posteo */
 Route::post("/borrarPosteo","PostController@destroy");
-
 /*Formulario de alta de like*/
-
 Route::post("/altaLike","LikeController@store")->middleware("auth");
+/*Formulario de alta de like*/
+Route::post("/altaLikeDetalle","LikeController@storeDetalle")->middleware("auth");
+/*buscar un like por numero de posteo*/
+Route::get("/likeposteo/{id}","LikePostController@show");
+/*likes por usuario*/
+Route::get("/likesPorUser/{user_id}","likeController@indexPorUser");
+
+
 
 
 

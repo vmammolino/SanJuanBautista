@@ -32,8 +32,21 @@
                     @endswitch
 
                     <div class="post-image-detail" >
-                      <img  src="/storage/posteo/{{$posteo->image}}">
+                    <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
+                    <form class="post-like" action="\altaLikeDetalle" method="post">
+                      @csrf
+                      <input type="hidden" name="post_id" value="{{$posteo->id}}">
+                      <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                      <input type="hidden" name="type_id" value="{{$posteo->type_id}}">
+                      {{-- <input type="hidden" name="like-id" value="{{$like->post-}}"> --}}
+
+                      <button type="submit" class="btn btn-link" >
+                        <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" >
+                        Me interesa!!
+                      </button>
+                    </form>
                     </div>
+                    <br><br>
                     <h4 class="post-title-detail">{{$posteo->title}}</h4>
                     <p class="post-desc">{{$posteo->description}}</p>
                     <a href="//{{$posteo->link}}" target="_blank" class="post-link" >{{$posteo->link}}</a>

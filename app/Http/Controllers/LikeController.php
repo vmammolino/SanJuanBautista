@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Like;
 use Illuminate\Http\Request;
-
+use Auth;
+use Post;
 
 class LikeController extends Controller
 {
@@ -15,6 +16,25 @@ class LikeController extends Controller
      */
     public function index()
     {
+        //
+    }
+    // MUESTRA LOS LIKES POR USUARIO
+    public function indexPorUser($user_id)
+    {
+
+      $like= Like::where("user_id","=",$user_id)->get();
+      // $post=New Post;
+      // $post::all();
+       // $post= Post::where("user_id","=",$type_id)->get();
+
+        // @dd($post);
+
+
+      // $vac= compact("post");
+      // return view("posteoPorTipo",$vac);
+
+      $vac= compact("like");
+      return view("/likesPorUser",$vac);
         //
     }
 
@@ -40,7 +60,21 @@ class LikeController extends Controller
       $like->user_id=$request->user_id;
       $like->post_id=$request->post_id;
       $like->save();
-      return redirect ("/detallePosteo/{$request->post_id}");
+      return redirect ("/posteo/{$request->post_id}");
+    }
+    /**ALTA DE UN LIKE desde el detalle de un Post
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeDetalle(Request $request)
+    {
+      $like=new Like;
+      $like->user_id=$request->user_id;
+      $like->post_id=$request->post_id;
+      $like->save();
+      return redirect ("/posteo/{$request->post_id}");
     }
 
     /**
@@ -51,6 +85,12 @@ class LikeController extends Controller
      */
     public function show(Like $like)
     {
+      $like= Like::Find($post_id);
+      $post=new Post;
+
+      @dd($posteo);
+      $vac= compact("like");
+      return view("detalleLike",$vac);
         //
     }
 

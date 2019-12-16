@@ -40,10 +40,16 @@
                                 <h5>{{$posteo->title}}</h5>
                               </a>
                             </article>
+
                           @empty
                             <h5 align="center">No cargaste ningún posteo todavía</h5><br>
                           @endforelse
+
                         </section>
+                      </div>
+                      <div class="d-flex justify-content-center btn-action">
+                          <a href="\abmposteos"class="btn btn-primary">Nuevo Posteo</a>
+                        <a href="\"class="btn btn-link">Volver</a>
                       </div>
                     @endif
                 </div>

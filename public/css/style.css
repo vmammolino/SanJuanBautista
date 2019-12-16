@@ -29,10 +29,11 @@ body{
   margin:0 auto;
   font-family: 'Montserrat', sans-serif;
 }
+
 .main-header {
   overflow: hidden;
   text-align:center;
-  margin-bottom: 40%;
+  /* margin-bottom: 40%; */
   /* margin: 0 auto; */
 }
 
@@ -40,6 +41,7 @@ body{
   border-radius: 50%;
   width: 20%;
   margin-top: 10%;
+  margin-bottom: 1%;
 }
 
 .main-header ul{
@@ -61,21 +63,14 @@ body{
   margin-bottom: 1%;
 }
 
-
-.btn-container {
-    margin-top: 40%
-    align-items: center;
-    font-size: 0.8em;
-    padding: 1rem
+.btn-login-register{
+  margin: auto;
+  padding-top: 12rem;
+  width: 50%;
 }
+
 .btn-block{
   font-size: 1em;
-}
-
-.dropdown {
-    float: right;
-    margin-top: 10%;
-    margin-right: 0.5%;
 }
 
 .categorias{
@@ -102,13 +97,6 @@ body{
   margin-top: 5%;
 }
 
-/* imagen inicial de la pagina*/
-.banner-inicial{
-  width: 100%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-}
-
 /* imagen del usuario logueado */
 .avatar{
   width: 30px;
@@ -117,7 +105,53 @@ body{
   margin-right: 1em;
 }
 
-/*posteos*/
+/************ HOME con tipos de posteos ********/
+.posteos{
+  overflow: hidden;
+}
+
+.dropdown {
+  width: 100%;
+  height:50px;
+  margin-right: 0.5%;
+}
+.button-menu {
+    float: right;
+    margin-right: 0.5%;
+}
+.post-types{
+  position: relative;
+  width: 100%;
+  /* height: 300px; */
+}
+.photo-title-container{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border: 0.3em solid rgb(212, 211, 224);
+  margin: 0.5%;
+}
+.photo-container{
+  position: absolute;
+  width: 100%;
+  height: 300px;
+}
+
+.photo {
+  width: 100%;
+  object-fit: contain;
+}
+
+.title-container{
+  position: absolute;
+  background-color: rgba(161, 194, 207,0.5);
+  color: white;
+  font-size: 1rem;
+  top: 40%;
+  width: 100%;
+  padding: 1%;
+}
+
 .post h2{
   background-color: RGB(120, 22, 22);
   text-align: center;
@@ -126,14 +160,17 @@ body{
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 3px;
-  padding:
 }
-.photo-container{
-  position: relative;
+
+.post h3{
+  text-align: center;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: bold;
+  margin: auto;
+  padding: 15%;
 }
-.photo {
-  width: 100%;
-}
+
 .more{
   display: inline-block;
   padding: 10px 15px;
@@ -179,7 +216,8 @@ body{
   width: 100%
 }
 
-/* Paginas con consultas y modificaciones*/
+
+/********* Listado de posteos y altas/bajas/modificacion de posteos *******/
 
 .posteos h2{
   background-color: rgb(51, 48, 110);
@@ -262,7 +300,7 @@ body{
   .main-header{
     overflow: hidden;
     position: relative;
-    margin-bottom: 20%;
+    margin-bottom: 1%;
   }
   /* body{
     background-image: url(/imagenes_sitio/inicio.png);
@@ -270,20 +308,22 @@ body{
     background-size: cover;
   } */
 
+  .fondo-container{
+    background-image: url(/imagenes_sitio/inicio.png);
+    background-size: 100% 100%;
+    margin: 1%;
+    width: 100%;
+    height: 644px;
+  }
+  .btn-login-register{
+    padding-top: 20rem;
+    margin-left: 10%;
+  }
   .logo{
     width: 10%;
     margin-top: 0.5rem;
   }
-  .dropdown {
-      margin-top: 3%;
-  }
 
-  .btn-container {
-      width: 100%;
-      margin-top: 20%;
-      padding: 0.1rem 30rem 0.1rem 2rem;
-      align-items: center;
-  }
   .btn-block{
     width: 60%;
   }
@@ -312,10 +352,13 @@ body{
     font-size: 1.5em;
   }
 
-  .posteos{
-    overflow: hidden;
-  }
   .one-post{
     float: left;
     width: 50%;
+  }
+  .photo-title-container{
+    height: 300px;
+  }
+  .photo-container{
+    height: 600px;
   }
