@@ -19,6 +19,23 @@
       </div>
 
      @else
+       <div class="dropdown">
+         <a class="btn btn btn-outline-primary dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <img class="avatar" src="/storage/avatar/{{Auth::user()->avatar}}">
+           <span>{{Auth::user()->name}}</span>
+         </a>
+
+       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+           <a class="dropdown-item" href="/biografia/{{Auth::user()->id}}">Biografia</a>
+           <a class="dropdown-item" href="/posteoPorUser/{{Auth::user()->id}}">Mis Posteos</a>
+            <a class="dropdown-item" href="/likesPorUser/{{Auth::user()->id}}">Mis Likes</a>
+           <form class="" action="/logout" method="post">
+             @csrf
+             <button class="dropdown-item" type="submit" name="button">Cerrar Sesion</button>
+           </form>
+
+         </div>
+       </div>
 
        <section class="posteos">
 
@@ -86,8 +103,14 @@
             </div>
          </div>
 
+<<<<<<< HEAD
       </section>
 
      @endguest
+=======
+        </section>
+      </div>
+      @endguest
+>>>>>>> 6074406b21e696426186af3427dad9bd20382f3a
 
   @endsection

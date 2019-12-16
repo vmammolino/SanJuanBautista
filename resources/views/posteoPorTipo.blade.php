@@ -8,7 +8,6 @@
 
 @else
 
-{{-- @dd($post) --}}
 {{-- <body style="background-image: none"> --}}
 
   <div class="container">
@@ -46,7 +45,8 @@
                         <a href="/posteo/{{$posteo->id}}" class="post-title" >
                           <h5>{{$posteo->title}}</h5>
                         </a>
-                        <form class="post-like" action="\altaLike" method="post">
+                        @if (Auth::user()->id!=$posteo->user_id)
+                          <form class="post-like" action="\altaLike" method="post">
                           @csrf
                           <input type="hidden" name="post_id" value="{{$posteo->id}}">
                           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
@@ -55,6 +55,7 @@
                             <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" >
                           </button>
                         </form>
+                        @endif
                       </article>
 
 

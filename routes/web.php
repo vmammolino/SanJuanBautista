@@ -40,10 +40,17 @@ Route::post("/modifPosteos","PostController@update");
 Route::post("/borrarPosteo","PostController@destroy");
 /*Formulario de alta de like*/
 Route::post("/altaLike","LikeController@store")->middleware("auth");
+<<<<<<< HEAD
 /*Formulario de alta de like*/
 Route::post("/altaLikeDetalle","LikeController@storeDetalle")->middleware("auth");
 /*buscar un like por numero de posteo*/
 Route::get("/likeposteo/{id}","LikePostController@show");
+=======
+/*Formulario de alta de like en el detalle*/
+Route::post("/altaLikeDetalle","LikeController@storeDetalle")->middleware("auth");
+/*buscar un like por numero de posteo*/
+// Route::get("/likeposteo/{id}","LikePostController@show");
+>>>>>>> 6074406b21e696426186af3427dad9bd20382f3a
 /*likes por usuario*/
 Route::get("/likesPorUser/{user_id}","likeController@indexPorUser");
 
