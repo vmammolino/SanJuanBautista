@@ -118,7 +118,7 @@ class BiographyController extends Controller
         if ($request->file_cv!==null){
           $path = $request->file_cv->store("/public/cv");
           $nombreArchivo = basename($path);
-          $biography->file_cv=$request->$nombreArchivo;
+          $biography->file_cv=$nombreArchivo;
         }
 
         $biography->first_name=$request->first_name;

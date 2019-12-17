@@ -39,10 +39,12 @@
                             <p>Estudios: {{$regbio->studies}}</p>
                             <p>Título obtenido: {{$regbio->degree}}</p>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-2">
                             <p>Archivo con CV: </p>
                           </div>
+                          <a href="/storage/cv/{{$regbio->file_cv}}" target="_blank" class="file-cv">
                             <img src="/storage/cv/{{$regbio->file_cv}}"  height="100" width="75">
+                          </a>
                         </div>
 
                         @csrf
