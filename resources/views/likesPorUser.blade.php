@@ -16,13 +16,13 @@
             <div class="card">
                 <div class="card-header">{{ __('Mis Likes') }}</div>
                   <div class="card-body">
-                    <h3 align="center">Bienvenido {{Auth::user()->name}} estos son los posteos que más te gustaron.</h3><br><br>
+                    <h2 align="center">Bienvenido {{Auth::user()->name}}</h2>
+                    <h3 align="center">Estos son los posteos que más te gustaron.</h3><br><br>
                     @if ($like->isEmpty())
                       <div class="form-group row">
                         <div class="col-md-6">
                           <h5 align="center">No diste like aún</h5><br>
                           <div class="d-flex justify-content-center btn-action">
-                              {{-- <a href="\abmposteos"class="btn btn-primary">Nuevo Posteo</a> --}}
                             <a href="\"class="btn btn-link">Volver</a>
                           </div>
                         </div>
@@ -37,8 +37,12 @@
                             @forelse ($post as $posteo)
                               @if ($likes->post_id==$posteo->id)
                               <article class="one-post">
-                                <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
-                                <h5>{{$posteo->title}}</h5>
+                                <a href="/posteo/{{$posteo->id}}">
+                                  <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
+                                </a>
+                                <a href="/posteo/{{$posteo->id}}">
+                                  <h5>{{$posteo->title}}</h5>
+                                </a>
                               </article>
                               @endif
                               @empty

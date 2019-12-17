@@ -15,7 +15,7 @@
 
               <section class ="posteos">
                 <div class="row justify-content-center">
-                  <article class="one-post-detail">
+                  <article class="">
                     @switch($posteo->type_id)
                       @case(1)
                         <h2 align="center">Post de Trabajo</h2>
@@ -31,26 +31,25 @@
                       @break
                     @endswitch
 
-                    <div class="post-image-detail" >
-                    <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
-                    <form class="post-like" action="\altaLikeDetalle" method="post">
-                      @csrf
-                      <input type="hidden" name="post_id" value="{{$posteo->id}}">
-                      <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                      <input type="hidden" name="type_id" value="{{$posteo->type_id}}">
-                      @if (Auth::user()->id!=$posteo->user_id)
-                      <button type="submit" class="btn btn-link" >
-                        {{-- <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" > --}}
-                        <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" style="object-fit: contain">
-                        Me interesa!!
-                      </button>
-                    @endif
-                    </form>
-                    </div>
-                    <br><br>
-                    <h4 class="post-title-detail">{{$posteo->title}}</h4>
-                    <p class="post-desc">{{$posteo->description}}</p>
-                    <a href="//{{$posteo->link}}" target="_blank" class="post-link" >{{$posteo->link}}</a>
+                    <div class="one-post" >
+                      <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
+                      <h5>{{$posteo->title}}</h5>
+                      <p class="post-desc">{{$posteo->description}}</p>
+                      <a href="//{{$posteo->link}}" target="_blank" class="post-link" >{{$posteo->link}}</a>
+                      <br><br>
+                      <form class="post-like" action="\altaLikeDetalle" method="post">
+                        @csrf
+                        <input type="hidden" name="post_id" value="{{$posteo->id}}">
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                        <input type="hidden" name="type_id" value="{{$posteo->type_id}}">
+                        @if (Auth::user()->id!=$posteo->user_id)
+                        <button type="submit" class="btn btn-outline-light btn-sm  btn-post-like" >
+                          <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="10" width="15">
+                        </button>
+                        <p>Me interesa!!</p>
+                        @endif
+                      </form>
+                  </div>
                   </article>
                 </div>
               </section>

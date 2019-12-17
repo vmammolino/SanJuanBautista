@@ -17,7 +17,7 @@
           <div class="card-header">{{ __('Posteos') }}</div>
             <div class="card-body">
               @if ($post->isEmpty())
-                <h2>No tenemos posteos disponibles</h2>
+                <h3>No tenemos posteos disponibles</h3>
               @else
                 {{-- <div class="row justify-content-center" style="background-color: white"> --}}
                   <section class ="posteos">
@@ -39,14 +39,14 @@
 
                     @forelse ($post as $posteo)
                       <article class="one-post" class="list-group-item list-group-item-action">
-                        <a href="/posteo/{{$posteo->id}}" class="post-image" >
+                        <a href="/posteo/{{$posteo->id}}">
                           <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
                         </a>
-                        <a href="/posteo/{{$posteo->id}}" class="post-title" >
+                        <a href="/posteo/{{$posteo->id}}">
                           <h5>{{$posteo->title}}</h5>
                         </a>
                         @if (Auth::user()->id!=$posteo->user_id)
-                          <form class="post-like" action="\altaLike" method="post">
+                          {{-- <form class="post-like" action="\altaLike" method="post">
                           @csrf
                           <input type="hidden" name="post_id" value="{{$posteo->id}}">
                           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
@@ -54,7 +54,20 @@
                           <button type="submit" class="btn btn-link" >
                             <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="40" width="40" >
                           </button>
+                        </form> --}}
+
+                        <form class="post-like" action="\altaLikeDetalle" method="post">
+                          @csrf
+                          <input type="hidden" name="post_id" value="{{$posteo->id}}">
+                          <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                          <input type="hidden" name="type_id" value="{{$posteo->type_id}}">
+                          <button type="submit" class="btn btn-outline-light btn-sm  btn-post-like" >
+                            <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="10" width="15">
+                          </button>
+                          <p>Me interesa!!</p>
                         </form>
+
+
                         @endif
                       </article>
 

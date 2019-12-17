@@ -13,7 +13,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">{{ __('Posteos') }}</div>
+        <div class="card-header">{{ __('Modificar Posteo') }}</div>
           <div class="card-body">
 
             @if (Auth::user()->id!=$posteo->user_id)
@@ -23,12 +23,6 @@
               </div>
             @else
 
-              <div class="container">
-                  <div class="row justify-content-center">
-                      <div class="col-md-8">
-                          <div class="card">
-                              <div class="card-header">{{ __('Modificar Posteo') }}</div>
-                              <div class="card-body">
                                   <form method="POST" action="/modifPosteos"  enctype="multipart/form-data">
                                       @csrf
                                       <input id="id" type="hidden"  name="id" value="{{$posteo->id}}">
@@ -123,6 +117,8 @@
                                         <a href="\"class="btn btn-link">Volver</a>
                                       </div>
 
+                                    </form>
+                                    
                                 </div>
                               </div>
                           </div>
