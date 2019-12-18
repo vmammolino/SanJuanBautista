@@ -17,7 +17,7 @@
                 <div class="card-header">{{ __('Mis Likes') }}</div>
                   <div class="card-body">
                     <h2 align="center">Bienvenido {{Auth::user()->name}}</h2>
-                    <h3 align="center">Estos son los posteos que más te gustaron.</h3><br><br>
+                    <h5 align="center">Estos son los posteos que más te gustaron.</h5><br><br>
                     @if ($like->isEmpty())
                       <div class="form-group row">
                         <div class="col-md-6">
@@ -36,15 +36,35 @@
                           @forelse ($like as $likes)
                             @forelse ($post as $posteo)
                               @if ($likes->post_id==$posteo->id)
-                              <article class="one-post">
-                                <a href="/posteo/{{$posteo->id}}">
-                                  <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
-                                </a>
-                                <a href="/posteo/{{$posteo->id}}">
-                                  <h5>{{$posteo->title}}</h5>
-                                </a>
-                              </article>
+
+
+                                <div class="list-post">
+                                  <article class="list-one-post" class="list-group-item list-group-item-action">
+                                    <a href="/posteo/{{$posteo->id}}">
+                                      <img  src="/storage/posteo/{{$posteo->image}}" height="30" width="30">
+                                    </a>
+                                    <a href="/posteo/{{$posteo->id}}">
+                                      <h5>{{$posteo->title}}</h5>
+                                    </a>
+                                    @switch($posteo->type_id)
+                                      @case(1)
+                                        <p>Trabajo</p>
+                                      @break
+                                      @case(2)
+                                        <p>Capacitación</p>
+                                      @break
+                                      @case(3)
+                                        <p>Emprendimiento</p>
+                                      @break
+                                      @case(4)
+                                        <p>Exámenes para Graduarse</p>
+                                      @break
+                                    @endswitch
+                                  </article>
+                                </div>
+
                               @endif
+
                               @empty
                                 <h5 align="center">No likeaste ningún posteo todavía</h5><br>
                             @endforelse

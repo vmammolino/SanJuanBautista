@@ -32,14 +32,41 @@
                       <div class="row justify-content-center">
                         <section class ="posteos">
                           @forelse ($post as $posteo)
-                            <article class="one-post">
-                              <a href="/posteo/{{$posteo->id}}" >
-                                <img  src="/storage/posteo/{{$posteo->image}}" height="150" width="150">
-                              </a>
-                              <a href="/posteo/{{$posteo->id}}">
-                                <h5>{{$posteo->title}}</h5>
-                              </a>
-                            </article>
+                            <div class="list-post">
+                              <article class="list-one-post" class="list-group-item list-group-item-action">
+                                <a href="/posteo/{{$posteo->id}}">
+                                  <img  src="/storage/posteo/{{$posteo->image}}" height="30" width="30">
+                                </a>
+                                <a href="/posteo/{{$posteo->id}}">
+                                  <h5>{{$posteo->title}}</h5>
+                                </a>
+                                @if (Auth::user()->id!=$posteo->user_id)
+                                  <form class="list-post-like" action="\altaLikeDetalle" method="post">
+                                    @csrf
+                                    <input type="hidden" name="post_id" value="{{$posteo->id}}">
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                    <input type="hidden" name="type_id" value="{{$posteo->type_id}}">
+                                    <button type="submit" class="btn btn-outline-light btn-sm  btn-list-post-like" >
+                                      <img  src="/imagenes_sitio/_ionicons_svg_md-thumbs-up.svg" height="10" width="15">
+                                    </button>
+                                  </form>
+                                @endif
+                                @switch($posteo->type_id)
+                                  @case(1)
+                                    <p>Trabajo</p>
+                                  @break
+                                  @case(2)
+                                    <p>Capacitación</p>
+                                  @break
+                                  @case(3)
+                                    <p>Emprendimiento</p>
+                                  @break
+                                  @case(4)
+                                    <p>Exámenes para Graduarse</p>
+                                  @break
+                                @endswitch
+                              </article>
+                            </div>
 
                           @empty
                             <h5 align="center">No cargaste ningún posteo todavía</h5><br>

@@ -113,6 +113,9 @@ body{
 /************ HOME con tipos de posteos ********/
 .posteos{
   overflow: hidden;
+  width: 100%;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
 }
 
 .dropdown {
@@ -222,13 +225,59 @@ body{
 }
 
 
-/********* Listado de posteos y altas/bajas/modificacion de posteos *******/
+/********* Listado de posteos *********/
+.list-post{
+  overflow: hidden;
+  width: 100%;
+  height: 120px;
+  border: 0.3em solid rgb(212, 211, 224);
+  margin-top: 1%;
+}
+.list-one-post img{
+  float: left;
+  width: 50%;
+  height: 50%;
+}
+.list-one-post h5{
+  float: left;
+  width: 50%;
+  font-size: 1.2rem;
+  padding-left: 1.1rem;
+  padding-top: 1rem;
+}
+.list-one-post p{
+  float: left;
+  width: 50%;
+  font-size: 0.7rem;
+  text-decoration: underline;
+  padding-left: 1.1rem;
+  padding-top: 1rem;
+}
+.list-post-like{
+  float: left;
+  width: 50%;
+  font-size: 0.8rem;
+  padding-left: 1.1rem;
+}
+
+.btn-list-post-like{
+  width: 40%;
+}
+/* .list-post-like p{
+  float: right;
+  padding-top: 1.2em;
+  margin-right: 20%;
+} */
+
+
+/**** Consulta, alta, baja, modificacion de un posteo *******/
 
 .posteos h2{
   background-color: rgb(51, 48, 110);
   color: white;
   margin-top: 2%;
 }
+
 .one-post{
   overflow: hidden;
   border: 0.3em solid rgb(212, 211, 224);
@@ -237,7 +286,11 @@ body{
 
 .post-image{
   float: left;
+  margin: 1%;
+  width: 100%;
+  height: 20em;
 }
+
 .one-post img{
   float: left;
   width: 100%;
@@ -248,15 +301,6 @@ body{
   padding-left: 0.5em;
 }
 
-.post-image{
-  margin: 1%;
-  width: 100%;
-  height: 20em;
-  /* margin: auto;
-  width: 40%; */  vvv
-  /* border: 2px solid rgb(51, 48, 110);
-  padding: 1%; */
-}
 .post-title{
   float: right;
   width: 50%;
@@ -304,6 +348,7 @@ body{
   width: 30%;
   margin-top: 3%;
 }
+
 .btn-post-like{
   width: 30%;
 }
